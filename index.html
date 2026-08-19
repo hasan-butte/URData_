@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>URData</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+    </head>
+    <body>
+
+        <!-- ================================================
+             NAVBAR
+             ================================================ -->
+        <nav id="navbar">
+            <a href="#" id="nav-eye-link" class="nav-eye-link" aria-label="Back to top">
+                <svg id="nav-eye-svg" class="eye-svg" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <clipPath id="nav-eye-clip">
+                            <path d="M 5,30 C 27,8 93,8 115,30 C 93,52 27,52 5,30 Z" />
+                        </clipPath>
+                    </defs>
+                    <path class="eye-sclera"    d="M 5,30 C 27,8  93,8  115,30 C 93,52 27,52 5,30 Z" />
+                    <path class="eye-lid-shade" d="M 5,30 C 27,8  93,8  115,30 C 80,18 40,18 5,30 Z" />
+                    <g clip-path="url(#nav-eye-clip)">
+                        <circle class="eye-iris"      cx="60" cy="30" r="17" />
+                        <circle class="eye-iris-ring" cx="60" cy="30" r="17" />
+                        <circle class="eye-iris-mid"  cx="60" cy="30" r="11" />
+                        <circle id="nav-pupil"        class="eye-pupil" cx="60" cy="30" r="8" />
+                        <ellipse id="nav-highlight"   class="eye-gleam" cx="55" cy="25" rx="3.5" ry="2.5" />
+                    </g>
+                    <path class="eye-outline"   d="M 5,30 C 27,8  93,8  115,30 C 93,52 27,52 5,30 Z" />
+                    <path class="eye-lid-line"  d="M 5,30 C 27,8  93,8  115,30" />
+                </svg>
+            </a>
+            <ul class="nav-links">
+                <li data-tooltip="The vocabulary you'll need before the rest makes sense."><a href="pages/concepts.html">Concepts</a></li>
+                <li data-tooltip="What they know about you might surprise you."><a href="pages/collected.html">Collected Data</a></li>
+                <li data-tooltip="Surveillance doesn't stay digital for long."><a href="pages/so-what.html">So What?</a></li>
+                <li data-tooltip="The gap between knowing and doing something about it."><a href="pages/now-what.html">Now What?</a></li>
+                <li data-tooltip="Don't take our word for it." class="nav-tip-right"><a href="pages/external-sources.html">External Sources</a></li>
+            </ul>
+        </nav>
+
+        <!-- ================================================
+             SECTION 1 — HERO
+             ================================================ -->
+        <section id="hero" class="full-section">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1 id="hero-title" class="hero-title"></h1>
+
+                <div id="hero-eye-wrap" class="hero-eye-wrap">
+                    <svg id="hero-eye-svg" class="eye-svg hero-eye-svg" viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <clipPath id="hero-eye-clip">
+                                <path d="M 10,60 C 55,16 185,16 230,60 C 185,104 55,104 10,60 Z" />
+                            </clipPath>
+                        </defs>
+                        <path class="eye-sclera"    d="M 10,60 C 55,16 185,16 230,60 C 185,104 55,104 10,60 Z" />
+                        <path class="eye-lid-shade" d="M 10,60 C 55,16 185,16 230,60 C 165,36 75,36  10,60 Z" />
+                        <g clip-path="url(#hero-eye-clip)">
+                            <circle class="eye-iris"      cx="120" cy="60" r="24" />
+                            <circle class="eye-iris-ring" cx="120" cy="60" r="24" />
+                            <circle class="eye-iris-mid"  cx="120" cy="60" r="16" />
+                            <circle id="hero-pupil"       class="eye-pupil" cx="120" cy="60" r="11" />
+                            <ellipse id="hero-highlight"  class="eye-gleam" cx="113" cy="54" rx="4.5" ry="3" />
+                        </g>
+                        <path class="eye-outline"   d="M 10,60 C 55,16 185,16 230,60 C 185,104 55,104 10,60 Z" />
+                        <path class="eye-lid-line"  d="M 10,60 C 55,16 185,16 230,60" />
+                        <!-- Invisible click zone — exact eye shape -->
+                        <path id="hero-eye-clickzone" d="M 10,60 C 55,16 185,16 230,60 C 185,104 55,104 10,60 Z"
+                              fill="transparent" style="cursor:pointer; pointer-events:fill;" />
+                    </svg>
+                </div>
+
+                <p class="hero-sub hero-sub1">
+                    <strong>Your data</strong> is your life, laid bare. <strong>You're data</strong>.
+                </p>
+                <a href="#summary" class="hero-sub hero-sub2 scroll-link">
+                    Ever wondered what price you're really paying to use your tech?
+                </a>
+            </div>
+        </section>
+
+        <!-- ================================================
+             SECTION 2 — SUMMARY
+             ================================================ -->
+        <section id="summary" class="full-section">
+            <div class="section-inner">
+                <h2 id="summary-title"
+                    class="section-title typing-title"
+                    data-text="What is your worth?"></h2>
+                <article class="summary-card">
+                    <h3 class="summary-card-title">Overview</h3>
+                    <p>
+                        The technology you rely on is not entirely harmless. Odds are, your lifestyle is being recorded by the devices you use: an app logging your keystrokes, a search engine logging sensitive information you had to research, an operating system taking regular screenshots of your desktop, a network of license plate readers tracking your commute. This happens at every scale, from the device in your pocket to infrastructure you pass without noticing.
+                    </p>
+                    <p>
+                        Your searches, purchases, location, health records, and relationships compose your identity. On its own, each device only picks up a slice of that. The real value comes from coupling: linking data across systems into a single profile that's more revealing than any one source alone, one that can be profited from. <strong>You are data.</strong>
+                    </p>
+                    <p>
+                        The societal and ethical costs of this are real, not abstract. Your identity becomes more exposed, and your ability to make free, unmanipulated choices gradually erodes. These effects fall heaviest on communities already under the most scrutiny. As people learn how much is being collected, <strong>trust in the institutions behind it erodes too.</strong>
+                    </p>
+                    <p>
+                        This site is built to explain the ethical, societal, and privacy implications of data aggregation. It defines the security and ethics concepts that come up throughout, documents how collection works in practice, examines what happens when it's allowed to continue, and closes with concrete steps to limit your exposure. No one has to give up technology. But <strong>everyone should understand what they're agreeing to when they use it.</strong>
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ================================================
+             FOOTER
+             ================================================ -->
+        <footer id="footer">
+            <div class="footer-inner">
+
+                <div class="footer-text">
+                    <p class="footer-credit">An independent project on data privacy and collection practices.</p>
+                    <p class="footer-statement">No cookies, analytics, or trackers.</p>
+                    <p class="footer-disclaimer">Code MIT licensed. Written content not for reproduction without permission.</p>
+                    <p class="footer-disclaimer">Built by Hasan Butte &nbsp;|&nbsp;
+                        <a href="https://github.com/hasan-butte/URData_" target="_blank" rel="noopener" class="footer-gh-link">View on GitHub</a>
+                    </p>
+                </div>
+
+            </div>
+        </footer>
+
+        <button id="scroll-top-btn" class="scroll-top-btn" aria-label="Back to top">&#8593;</button>
+
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
