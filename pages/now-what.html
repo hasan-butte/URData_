@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Now What? — URData</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="../assets/css/now-what-style.css" />
+    </head>
+    <body>
+
+        <!-- NAV -->
+        <nav id="navbar">
+            <a href="../index.html" id="nav-eye-link" class="nav-eye-link" aria-label="Back to home">
+                <svg id="nav-eye-svg" class="eye-svg" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <clipPath id="nav-eye-clip">
+                            <path d="M 5,30 C 27,8 93,8 115,30 C 93,52 27,52 5,30 Z" />
+                        </clipPath>
+                    </defs>
+                    <path class="eye-sclera"    d="M 5,30 C 27,8  93,8  115,30 C 93,52 27,52 5,30 Z" />
+                    <path class="eye-lid-shade" d="M 5,30 C 27,8  93,8  115,30 C 80,18 40,18 5,30 Z" />
+                    <g clip-path="url(#nav-eye-clip)">
+                        <circle class="eye-iris"      cx="60" cy="30" r="17" />
+                        <circle class="eye-iris-ring" cx="60" cy="30" r="17" />
+                        <circle class="eye-iris-mid"  cx="60" cy="30" r="11" />
+                        <circle id="nav-pupil"        class="eye-pupil" cx="60" cy="30" r="8" />
+                        <ellipse id="nav-highlight"   class="eye-gleam" cx="55" cy="25" rx="3.5" ry="2.5" />
+                    </g>
+                    <path class="eye-outline"  d="M 5,30 C 27,8  93,8  115,30 C 93,52 27,52 5,30 Z" />
+                    <path class="eye-lid-line" d="M 5,30 C 27,8  93,8  115,30" />
+                </svg>
+            </a>
+            <ul class="nav-links">
+                <li><a href="concepts.html">Concepts</a></li>
+                <li><a href="collected.html">Collected Data</a></li>
+                <li><a href="so-what.html">So What?</a></li>
+                <li><a href="now-what.html" class="nav-current">Now What?</a></li>
+                <li><a href="external-sources.html">External Sources</a></li>
+            </ul>
+        </nav>
+
+        <!-- SECTION 1: PUZZLE SELECTOR -->
+        <section id="puzzle-section">
+            <div id="puzzle-intro">
+                <h1 id="puzzle-title" class="puzzle-title" data-text="Now What?"></h1>
+                <p class="puzzle-tagline">Select a category to see what you can do.</p>
+            </div>
+
+            <div id="puzzle-arena">
+                <!-- Simple card array — same icons/labels, glow + pull-down on select -->
+                <div class="piece-card" data-id="0">
+                    <svg class="card-icon" viewBox="-42 -40 84 70" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="-36" y="-30" width="72" height="50" rx="4" fill="none"/>
+                        <rect x="-30" y="-24" width="60" height="38" rx="2" fill="rgba(120,50,240,0.18)"/>
+                        <line x1="-22" y1="-16" x2="20"  y2="-16"/>
+                        <line x1="-22" y1="-8"  x2="13"  y2="-8"/>
+                        <line x1="-22" y1="0"   x2="17"  y2="0"/>
+                        <line x1="-36" y1="20"  x2="36"  y2="20" stroke-width="2"/>
+                        <rect x="-42" y="20" width="84" height="14" rx="4" fill="none"/>
+                        <rect x="-13" y="24" width="26" height="7"  rx="2" fill="none" opacity="0.6"/>
+                    </svg>
+                    <span class="card-label">Personal Computers</span>
+                </div>
+
+                <div class="piece-card" data-id="1">
+                    <svg class="card-icon" viewBox="-22 -42 44 84" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="-20" y="-38" width="40" height="76" rx="7" fill="none"/>
+                        <rect x="-14" y="-28" width="28" height="46" rx="3" fill="rgba(120,50,240,0.18)"/>
+                        <line x1="-8" y1="-33" x2="8"  y2="-33" stroke-width="3" stroke-linecap="round"/>
+                        <line x1="-6" y1="31"  x2="6"  y2="31"  stroke-width="3" stroke-linecap="round"/>
+                        <circle cx="-6" cy="-14" r="5" fill="none" opacity="0.55"/>
+                        <circle cx="6"  cy="-14" r="5" fill="none" opacity="0.55"/>
+                    </svg>
+                    <span class="card-label">Mobile Devices</span>
+                </div>
+
+                <div class="piece-card" data-id="2">
+                    <!-- Lightbulb icon -->
+                    <svg class="card-icon" viewBox="-28 -42 56 76" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Bulb dome: rounder top, shifted down -->
+                        <path d="M -18,-14 C -18,-38 18,-38 18,-14 C 18,-4 10,10 8,20 L -8,20 C -10,10 -18,-4 -18,-14 Z" fill="rgba(120,50,240,0.18)"/>
+                        <!-- Base box -->
+                        <rect x="-8" y="20" width="16" height="12" rx="1" fill="none"/>
+                        <!-- Threading lines -->
+                        <line x1="-8" y1="24" x2="8" y2="24"/>
+                        <line x1="-8" y1="28" x2="8" y2="28"/>
+                        <!-- Nub -->
+                        <rect x="-4" y="32" width="8" height="2" rx="1" fill="none" opacity="0.7"/>
+                        <!-- Filament -->
+                        <path d="M -6,12 L -3,4 L 0,8 L 3,4 L 6,12" fill="none" stroke-width="1.4"/>
+                        <!-- Shine lines -->
+                        <line x1="20" y1="-18" x2="24" y2="-22" stroke-linecap="round" opacity="0.6"/>
+                        <line x1="22" y1="-6"  x2="27" y2="-6"  stroke-linecap="round" opacity="0.6"/>
+                        <line x1="-20" y1="-18" x2="-24" y2="-22" stroke-linecap="round" opacity="0.6"/>
+                        <line x1="-22" y1="-6"  x2="-27" y2="-6"  stroke-linecap="round" opacity="0.6"/>
+                        <line x1="0" y1="-38" x2="0" y2="-34" stroke-linecap="round" opacity="0.6"/>
+                    </svg>
+                    <span class="card-label">Unconventional Devices</span>
+                </div>
+
+                <div class="piece-card" data-id="3">
+                    <!-- Open book icon -->
+                    <svg class="card-icon" viewBox="-38 -30 76 60" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Left page -->
+                        <path d="M 0,-22 C -6,-24 -22,-24 -34,-20 L -34,22 C -22,18 -6,18 0,20 Z" fill="rgba(120,50,240,0.18)"/>
+                        <!-- Right page -->
+                        <path d="M 0,-22 C 6,-24 22,-24 34,-20 L 34,22 C 22,18 6,18 0,20 Z" fill="rgba(120,50,240,0.18)"/>
+                        <!-- Spine -->
+                        <line x1="0" y1="-22" x2="0" y2="20" stroke-width="2"/>
+                        <!-- Left page lines -->
+                        <line x1="-28" y1="-10" x2="-6"  y2="-12" opacity="0.7"/>
+                        <line x1="-28" y1="-2"  x2="-6"  y2="-4"  opacity="0.7"/>
+                        <line x1="-28" y1="6"   x2="-6"  y2="4"   opacity="0.7"/>
+                        <!-- Right page lines -->
+                        <line x1="6"   y1="-12" x2="28"  y2="-10" opacity="0.7"/>
+                        <line x1="6"   y1="-4"  x2="28"  y2="-2"  opacity="0.7"/>
+                        <line x1="6"   y1="4"   x2="28"  y2="6"   opacity="0.7"/>
+                        <!-- Bottom curve -->
+                        <path d="M -34,22 Q 0,28 34,22" fill="none"/>
+                    </svg>
+                    <span class="card-label">Information &amp; Outreach</span>
+                </div>
+
+                <div class="piece-card" data-id="4">
+                    <svg class="card-icon" viewBox="-38 -38 76 76" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="0" cy="0" r="34" fill="none"/>
+                        <ellipse cx="0" cy="0" rx="15" ry="34" fill="none"/>
+                        <path d="M -33,-11 Q 0,-16 33,-11" fill="none"/>
+                        <path d="M -33,11  Q 0,16  33,11"  fill="none"/>
+                        <line x1="-34" y1="0" x2="34" y2="0" stroke-dasharray="5 4"/>
+                        <path d="M -33,-22 Q 0,-28 33,-22" fill="none" opacity="0.5"/>
+                        <path d="M -33,22  Q 0,28  33,22"  fill="none" opacity="0.5"/>
+                        <circle cx="0" cy="-34" r="3" fill="currentColor"/>
+                        <circle cx="0" cy="34"  r="3" fill="currentColor"/>
+                    </svg>
+                    <span class="card-label">The Internet</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 2: SHAPED CONTENT -->
+        <section id="content-section">
+            <div id="content-wrap">
+                <div id="content-placeholder">
+                    <span class="placeholder-label">awaiting selection</span>
+                    <p class="placeholder-text">Select a category above to see what you can do.</p>
+                </div>
+                <article id="content-card"></article>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer id="footer">
+            <div class="footer-inner">
+                <div class="footer-text">
+                    <p class="footer-credit">An independent project on data privacy and collection practices.</p>
+                    <p class="footer-statement">No cookies, analytics, or trackers.</p>
+                    <p class="footer-disclaimer">Code MIT licensed. Written content not for reproduction without permission.</p>
+                    <p class="footer-disclaimer">Built by Hasan Butte &nbsp;|&nbsp;
+                        <a href="https://github.com/hasan-butte/URData_" target="_blank" rel="noopener" class="footer-gh-link">View on GitHub</a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <button id="scroll-top-btn" class="scroll-top-btn" aria-label="Back to top">&#8593;</button>
+
+        <script src="../assets/js/now-what-script.js"></script>
+    </body>
+</html>
