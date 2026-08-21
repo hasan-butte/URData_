@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Resources — URData</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="../assets/css/resources-style.css" />
+    </head>
+    <body>
+
+        <!-- NAV -->
+        <nav id="navbar">
+            <a href="../index.html" id="nav-eye-link" class="nav-eye-link" aria-label="Back to home">
+                <svg id="nav-eye-svg" class="eye-svg" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <clipPath id="nav-eye-clip">
+                            <path d="M 5,30 C 27,8 93,8 115,30 C 93,52 27,52 5,30 Z" />
+                        </clipPath>
+                    </defs>
+                    <path class="eye-sclera"    d="M 5,30 C 27,8  93,8  115,30 C 93,52 27,52 5,30 Z" />
+                    <path class="eye-lid-shade" d="M 5,30 C 27,8  93,8  115,30 C 80,18 40,18 5,30 Z" />
+                    <g clip-path="url(#nav-eye-clip)">
+                        <circle class="eye-iris"      cx="60" cy="30" r="17" />
+                        <circle class="eye-iris-ring" cx="60" cy="30" r="17" />
+                        <circle class="eye-iris-mid"  cx="60" cy="30" r="11" />
+                        <circle id="nav-pupil"        class="eye-pupil" cx="60" cy="30" r="8" />
+                        <ellipse id="nav-highlight"   class="eye-gleam" cx="55" cy="25" rx="3.5" ry="2.5" />
+                    </g>
+                    <path class="eye-outline"  d="M 5,30 C 27,8  93,8  115,30 C 93,52 27,52 5,30 Z" />
+                    <path class="eye-lid-line" d="M 5,30 C 27,8  93,8  115,30" />
+                </svg>
+            </a>
+            <ul class="nav-links">
+                <li data-tooltip="The vocabulary you'll need before the rest makes sense."><a href="concepts.html">Concepts</a></li>
+                <li data-tooltip="What they know about you might surprise you."><a href="collected.html">Collected Data</a></li>
+                <li data-tooltip="Surveillance doesn't stay digital for long."><a href="so-what.html">So What?</a></li>
+                <li data-tooltip="The gap between knowing and doing something about it."><a href="now-what.html">Now What?</a></li>
+                <li data-tooltip="Don't take our word for it." class="nav-tip-right"><a href="resources.html" class="nav-current">Resources</a></li>
+            </ul>
+        </nav>
+
+        <!-- PAGE HEADER -->
+        <header id="page-header">
+            <div id="header-inner">
+                <h1 id="page-title" class="page-title" data-text="Resources"></h1>
+                <p class="page-tagline">A curated list of tools, organizations, legislation, and reporting on data privacy.</p>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main id="sources-main">
+            <div class="cards-container">
+
+                <!-- ── CARD 1 ── -->
+                <article class="source-card" id="card-1">
+                    <h2 class="source-category">Tools &amp; Self-Assessment</h2>
+                    <ul class="source-list">
+                        <li class="source-item">
+                            <a href="https://coveryourtracks.eff.org" class="source-link" target="_blank" rel="noopener noreferrer">Cover Your Tracks (EFF)</a>
+                            <p class="source-desc">Free tool from the EFF that tests how trackable your browser is based on its fingerprint and tracking protections.</p>
+                        </li>
+                        <li class="source-item">
+                            <a href="https://haveibeenpwned.com" class="source-link" target="_blank" rel="noopener noreferrer">Have I Been Pwned</a>
+                            <p class="source-desc">Free service that lets you check if your email address or phone number has appeared in any known data breaches.</p>
+                        </li>
+                        <li class="source-item">
+                            <a href="https://www.privacyguides.org" class="source-link" target="_blank" rel="noopener noreferrer">Privacy Guides</a>
+                            <p class="source-desc">Community-driven resource recommending privacy-respecting tools and services for browsing, communication, and file storage.</p>
+                        </li>
+                        <li class="source-item">
+                            <a href="https://bitwarden.com" class="source-link" target="_blank" rel="noopener noreferrer">Bitwarden</a>
+                            <p class="source-desc">Free, open-source password manager that generates and stores unique passwords for all your accounts.</p>
+                        </li>
+                        <li class="source-item">
+                            <a href="https://simplelogin.io" class="source-link" target="_blank" rel="noopener noreferrer">SimpleLogin</a>
+                            <p class="source-desc">Email alias service that lets you create unique addresses for each service you sign up for, protecting your real email from being shared or sold.</p>
+                        </li>
+                    </ul>
+                </article>
+
+                <!-- ── CARD 2 ── -->
+                <article class="source-card" id="card-2">
+                    <h2 class="source-category">Organizations &amp; Advocacy Groups</h2>
+                    <ul class="source-list">
+                        <li class="source-item">
+                            <a href="https://www.eff.org" class="source-link" target="_blank" rel="noopener noreferrer">Electronic Frontier Foundation (EFF)</a>
+                            <p class="source-desc">Nonprofit defending civil liberties in the digital world, including privacy, free expression, and security.</p>
+                        </li>
+                        <li class="source-item">
+                            <a href="https://epic.org" class="source-link" target="_blank" rel="noopener noreferrer">Electronic Privacy Information Center (EPIC)</a>
+                            <p class="source-desc">Independent research center focused on privacy and civil liberties issues, with a strong record of policy advocacy and government oversight.</p>
+                        </li>
+                        <li class="source-item">
+                            <a href="https://www.accessnow.org" class="source-link" target="_blank" rel="noopener noreferrer">Access Now</a>
+                            <p class="source-desc">International organization defending digital rights of users at risk around the world, including data protection and government surveillance.</p>
+                        </li>
+                        <li class="source-item">
+                            <a href="https://privacyinternational.org" class="source-link" target="_blank" rel="noopener noreferrer">Privacy International</a>
+                            <p class="source-desc">UK-based charity that investigates and challenges government and corporate surveillance worldwide.</p>
+                        </li>
+                        <li class="source-item">
+                            <a href="https://cdt.org" class="source-link" target="_blank" rel="noopener noreferrer">Center for Democracy &amp; Technology (CDT)</a>
+                            <p class="source-desc">Nonpartisan nonprofit shaping technology policy and law, with a focus on privacy, surveillance, and civil rights in the digital age.</p>
+                        </li>
+                    </ul>
+                </article>
+
+                <!-- ── CARD 3 ── -->
+                <article class="source-card" id="card-3">
+                    <h2 class="source-category">Legislation &amp; Policy</h2>
+                    <ul class="source-list">
+                        <li class="source-item">
+                            <a href="https://commission.europa.eu/law/law-topic/data-protection_en" class="source-link" target="_blank" rel="noopener noreferrer">GDPR Overview (European Commission)</a>
+                            <p class="source-desc">Overview of the EU's General Data Protection Regulation, the most comprehensive data privacy law in the world.</p>
+                        </li>
+                        <li class="source-item">
+                            <a href="https://oag.ca.gov/privacy/ccpa" class="source-link" target="_blank" rel="noopener noreferrer">California Consumer Privacy Act (CCPA/CPRA)</a>
+                            <p class="source-desc">California's landmark consumer privacy law giving residents the right to know what data is collected, request deletion, and opt out of data sales.</p>
+                        </li>
+                        <li class="source-item">
+                            <a href="https://www.ilga.gov/Legislation/ILCS/Articles?ActID=3004&amp;ChapterID=57" class="source-link" target="_blank" rel="noopener noreferrer">Illinois Biometric Information Privacy Act (BIPA)</a>
+                            <p class="source-desc">The strongest biometric privacy law in the U.S., requiring consent before collecting fingerprints, faceprints, and other biometric identifiers.</p>
+                        </li>
+                        <li class="source-item">
+                            <a href="https://www.ftc.gov/legal-library/browse/cases-proceedings?search_api_fulltext=privacy" class="source-link" target="_blank" rel="noopener noreferrer">FTC Privacy and Data Security Actions</a>
+                            <p class="source-desc">Searchable database of FTC enforcement actions that include actions related to privacy and data security. Includes cases against notable, large tech companies.</p>
+                        </li>
+                        <li class="source-item">
+                            <a href="https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240SB362" class="source-link" target="_blank" rel="noopener noreferrer">California Delete Act (SB 362)</a>
+                            <p class="source-desc">California law creating a centralized mechanism for consumers to request deletion from multiple data brokers at once.</p>
+                        </li>
+                    </ul>
+                </article>
+
+                <!-- ── CARD 4 ── -->
+                <article class="source-card" id="card-4">
+                    <h2 class="source-category">News &amp; Research</h2>
+                    <ul class="source-list">
+                        <li class="source-item">
+                            <a href="https://themarkup.org" class="source-link" target="_blank" rel="noopener noreferrer">The Markup</a>
+                            <p class="source-desc">Nonprofit newsroom investigating how technology is used to exert power, with a focus on data privacy, algorithms, and surveillance.</p>
+                        </li>
+                        <li class="source-item">
+                            <a href="https://www.wired.com/category/security/" class="source-link" target="_blank" rel="noopener noreferrer">Wired — Security &amp; Privacy</a>
+                            <p class="source-desc">Wired's dedicated section covering cybersecurity, data breaches, and digital privacy developments.</p>
+                        </li>
+                        <li class="source-item">
+                            <a href="https://arstechnica.com/tag/privacy/" class="source-link" target="_blank" rel="noopener noreferrer">Ars Technica</a>
+                            <p class="source-desc">Technology news outlet with in-depth reporting on privacy policy, data collection practices, and surveillance technology.</p>
+                        </li>
+                        <li class="source-item">
+                            <a href="https://www.404media.co" class="source-link" target="_blank" rel="noopener noreferrer">404 Media</a>
+                            <p class="source-desc">Independent tech journalism outlet founded by former Vice Motherboard reporters, covering surveillance, hacking, and digital rights.</p>
+                        </li>
+                        <li class="source-item">
+                            <a href="https://coveryourtracks.eff.org/static/browser-uniqueness.pdf" class="source-link" target="_blank" rel="noopener noreferrer">EFF — Cover Your Tracks Research Paper</a>
+                            <p class="source-desc">Peter Eckersley's foundational research paper on browser fingerprinting, demonstrating that the vast majority of browsers are uniquely identifiable.</p>
+                        </li>
+                        <li class="source-item">
+                            <a href="https://arxiv.org/abs/2409.06203" class="source-link" target="_blank" rel="noopener noreferrer">UCL / UC Davis — Smart TV ACR Tracking Study</a>
+                            <p class="source-desc">Academic paper auditing Automatic Content Recognition tracking on Samsung and LG smart TVs, revealing the frequency and scope of data collection.</p>
+                        </li>
+                    </ul>
+                </article>
+
+                <!-- ── CARD 5 ── -->
+                <article class="source-card" id="card-5">
+                    <h2 class="source-category">Documentaries &amp; Longform Content</h2>
+                    <ul class="source-list">
+                        <li class="source-item">
+                            <a href="https://www.thesocialdilemma.com" class="source-link" target="_blank" rel="noopener noreferrer">The Social Dilemma (2020)</a>
+                            <p class="source-desc">Netflix documentary featuring former tech executives explaining how social media platforms are designed to exploit user behavior for profit.</p>
+                        </li>
+                        <li class="source-item">
+                            <a href="https://citizenfourfilm.com" class="source-link" target="_blank" rel="noopener noreferrer">Citizenfour (2014)</a>
+                            <p class="source-desc">Academy Award-winning documentary following Edward Snowden's disclosure of NSA mass surveillance programs.</p>
+                        </li>
+                        <li class="source-item">
+                            <a href="https://www.netflix.com/title/80117542" class="source-link" target="_blank" rel="noopener noreferrer">The Great Hack (2019)</a>
+                            <p class="source-desc">Documentary exploring the Cambridge Analytica scandal and how personal data was weaponized for political manipulation.</p>
+                        </li>
+                        <li class="source-item">
+                            <a href="https://www.imdb.com/title/tt2084953/" class="source-link" target="_blank" rel="noopener noreferrer">Terms and Conditions May Apply (2013)</a>
+                            <p class="source-desc">Documentary examining how corporations and governments exploit the terms of service that nobody reads.</p>
+                        </li>
+                        <li class="source-item">
+                            <a href="https://www.imdb.com/title/tt7189718/" class="source-link" target="_blank" rel="noopener noreferrer">Nothing to Hide (2017)</a>
+                            <p class="source-desc">Documentary challenging the common argument that "if you have nothing to hide, you have nothing to fear."</p>
+                        </li>
+                    </ul>
+                </article>
+
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer id="footer">
+            <div class="footer-inner">
+                <div class="footer-left">
+                    <div class="footer-text">
+                        <p class="footer-credit">An independent project on data privacy and collection practices.</p>
+                        <p class="footer-statement">No cookies, analytics, or trackers.</p>
+                        <p class="footer-disclaimer">Code MIT licensed. Written content not for reproduction without permission.</p>
+                        <p class="footer-disclaimer">Built by Hasan Butte &nbsp;|&nbsp;
+                            <a href="https://github.com/hasan-butte/URData_" target="_blank" rel="noopener" class="footer-gh-link">View on GitHub</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="footer-divider"></div>
+                <p class="footer-trademark">The resources listed on this page are shared for educational purposes only. This site is not affiliated with, endorsed by, or sponsored by any of the resources referenced.</p>
+            </div>
+        </footer>
+
+        <button id="scroll-top-btn" class="scroll-top-btn" aria-label="Back to top">&#8593;</button>
+
+        <script src="../assets/js/resources-script.js"></script>
+    </body>
+</html>
