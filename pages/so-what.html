@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>So What? — URData</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="../assets/css/so-what-style.css" />
+    </head>
+    <body>
+
+        <!-- NAV -->
+        <nav id="navbar">
+            <a href="../index.html" id="nav-eye-link" class="nav-eye-link" aria-label="Back to home">
+                <svg id="nav-eye-svg" class="eye-svg" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <clipPath id="nav-eye-clip">
+                            <path d="M 5,30 C 27,8 93,8 115,30 C 93,52 27,52 5,30 Z" />
+                        </clipPath>
+                    </defs>
+                    <path class="eye-sclera"    d="M 5,30 C 27,8  93,8  115,30 C 93,52 27,52 5,30 Z" />
+                    <path class="eye-lid-shade" d="M 5,30 C 27,8  93,8  115,30 C 80,18 40,18 5,30 Z" />
+                    <g clip-path="url(#nav-eye-clip)">
+                        <circle class="eye-iris"      cx="60" cy="30" r="17" />
+                        <circle class="eye-iris-ring" cx="60" cy="30" r="17" />
+                        <circle class="eye-iris-mid"  cx="60" cy="30" r="11" />
+                        <circle id="nav-pupil"        class="eye-pupil" cx="60" cy="30" r="8" />
+                        <ellipse id="nav-highlight"   class="eye-gleam" cx="55" cy="25" rx="3.5" ry="2.5" />
+                    </g>
+                    <path class="eye-outline"  d="M 5,30 C 27,8  93,8  115,30 C 93,52 27,52 5,30 Z" />
+                    <path class="eye-lid-line" d="M 5,30 C 27,8  93,8  115,30" />
+                </svg>
+            </a>
+            <ul class="nav-links">
+                <li data-tooltip="The vocabulary you'll need before the rest makes sense."><a href="concepts.html">Concepts</a></li>
+                <li data-tooltip="What they know about you might surprise you."><a href="collected.html">Collected Data</a></li>
+                <li data-tooltip="Surveillance doesn't stay digital for long."><a href="so-what.html" class="nav-current">So What?</a></li>
+                <li data-tooltip="The gap between knowing and doing something about it."><a href="now-what.html">Now What?</a></li>
+                <li data-tooltip="Don't take our word for it." class="nav-tip-right"><a href="resources.html">Resources</a></li>
+            </ul>
+        </nav>
+
+        <!-- FIXED SUBHEADER -->
+        <header id="sowhat-header">
+            <div class="header-left">
+                <p class="header-instruction">Click any node to explore each consequence.</p>
+            </div>
+            <div class="header-right">
+                <div class="dropdown-wrap">
+                    <button class="dropdown-toggle" id="sw-dropdown-toggle" aria-haspopup="listbox" aria-expanded="false">
+                        Jump to node <span class="dropdown-arrow">▾</span>
+                    </button>
+                    <ul class="dropdown-menu" id="sw-dropdown-menu" role="listbox">
+                        <li><a href="#" data-node-id="node-1">01 — Surveillance Capitalism</a></li>
+                        <li><a href="#" data-node-id="node-2">02 — Power Asymmetry</a></li>
+                        <li><a href="#" data-node-id="node-3">03 — Loss of Autonomy</a></li>
+                        <li><a href="#" data-node-id="node-4">04 — Weaponized Infrastructure</a></li>
+                        <li><a href="#" data-node-id="node-5">05 — Discrimination and Inequality</a></li>
+                        <li><a href="#" data-node-id="node-6">06 — Erosion of Trust</a></li>
+                        <li><a href="#" data-node-id="node-7">07 — Normalization of Surveillance</a></li>
+                        <li><a href="#" data-node-id="node-8">08 — Identity Exposure</a></li>
+                        <li><a href="#" data-node-id="node-9">09 — The Permanent Record</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN -->
+        <main id="sowhat-main">
+
+            <div id="page-intro">
+                <h1 id="intro-title" class="intro-title" data-text="So What?"></h1>
+                <blockquote class="intro-quote">
+                    <p class="intro-quote-text">&ldquo;If you want a picture of the future, imagine a boot stamping on a human face&mdash;for ever.&rdquo;</p>
+                    <cite class="intro-quote-cite">&mdash; George Orwell, <em>1984</em></cite>
+                </blockquote>
+            </div>
+
+            <div id="node-canvas-wrap">
+
+                <svg id="connections-svg" aria-hidden="true">
+                    <defs>
+                        <filter id="path-glow" x="-30%" y="-30%" width="160%" height="160%">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur" />
+                            <feMerge>
+                                <feMergeNode in="blur" />
+                                <feMergeNode in="SourceGraphic" />
+                            </feMerge>
+                        </filter>
+                        <filter id="dot-glow" x="-200%" y="-200%" width="500%" height="500%">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+                            <feMerge>
+                                <feMergeNode in="blur" />
+                                <feMergeNode in="SourceGraphic" />
+                            </feMerge>
+                        </filter>
+                    </defs>
+                </svg>
+
+                <!-- MASTER NODE -->
+                <div class="node-wrap node-center" id="master-wrap">
+                    <div class="node-group" id="master-group">
+                        <div class="node master-node" id="node-0">
+                            <div class="node-inner">
+                                <h2 class="node-title master-title">Why Does It Matter?</h2>
+                                <p class="master-body">The collection of personal data at scale is not a neutral act. It is a system of extraction and commodification, in which power asymmetries between institutions and individuals produce exploitation at both a personal and societal scale, and in which mistrust and hesitation become the quiet cost of everyday life. Deontological ethics holds that people must be treated as ends in themselves, yet data collection treats every user as a resource to be mined. Utilitarian analysis offers no defense either: the benefits concentrate among a few corporations while the costs are diffused across billions. And the arrangement borrows the logic of a social contract: an implicit trust between institution and individual, one nobody actually negotiated. No reasonable, fully informed person would agree to these terms. What follows explores why.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHILD NODE 1 — LEFT -->
+                <div class="node-wrap node-left" data-node="1">
+                    <div class="node-group">
+                        <div class="node child-node" id="node-1">
+                            <div class="node-inner">
+                                <span class="node-index">01</span>
+                                <h2 class="node-title">Surveillance Capitalism</h2>
+                                <div class="node-divider"></div>
+                                <div class="node-svg-slot">
+                                    <svg viewBox="0 0 100 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- Cart basket (trapezoid) -->
+                                        <polygon points="18,22 82,22 76,58 24,58" fill="rgba(120,50,240,0.15)" stroke="rgba(190,145,255,0.88)" stroke-width="2" stroke-linejoin="round"/>
+                                        <!-- Handle -->
+                                        <line x1="82" y1="22" x2="93" y2="11" stroke="rgba(190,145,255,0.88)" stroke-width="2" stroke-linecap="round"/>
+                                        <!-- Axle bar -->
+                                        <line x1="30" y1="65" x2="70" y2="65" stroke="rgba(190,145,255,0.88)" stroke-width="2"/>
+                                        <!-- Left wheel -->
+                                        <circle cx="30" cy="74" r="8" fill="rgba(120,50,240,0.15)" stroke="rgba(190,145,255,0.88)" stroke-width="2"/>
+                                        <!-- Right wheel -->
+                                        <circle cx="70" cy="74" r="8" fill="rgba(120,50,240,0.15)" stroke="rgba(190,145,255,0.88)" stroke-width="2"/>
+                                        <!-- Eye outer oval -->
+                                        <ellipse cx="50" cy="39" rx="18" ry="10" fill="rgba(120,50,240,0.22)" stroke="rgba(190,145,255,0.95)" stroke-width="1.8"/>
+                                        <!-- Eye pupil -->
+                                        <circle cx="50" cy="39" r="5.5" fill="rgba(90,20,200,0.50)" stroke="rgba(190,145,255,0.95)" stroke-width="1.5"/>
+                                        <!-- Eye highlight -->
+                                        <circle cx="47" cy="37" r="1.2" fill="rgba(255,255,255,0.65)"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="node-card" id="card-1">
+                        <div class="card-inner">
+                            <div class="card-header">
+                                <span class="card-node-index"></span>
+                                <h2 class="card-title"></h2>
+                            </div>
+                            <div class="card-divider"></div>
+                            <div class="card-body"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHILD NODE 2 — RIGHT -->
+                <div class="node-wrap node-right" data-node="2">
+                    <div class="node-group">
+                        <div class="node child-node" id="node-2">
+                            <div class="node-inner">
+                                <span class="node-index">02</span>
+                                <h2 class="node-title">Power Asymmetry</h2>
+                                <div class="node-divider"></div>
+                                <div class="node-svg-slot">
+                                    <svg viewBox="0 0 100 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- Fulcrum triangle -->
+                                        <polygon points="44,52 50,40 56,52" fill="rgba(120,50,240,0.15)" stroke="rgba(190,145,255,0.88)" stroke-width="2" stroke-linejoin="round"/>
+                                        <!-- Fulcrum post and base -->
+                                        <line x1="50" y1="52" x2="50" y2="62" stroke="rgba(190,145,255,0.88)" stroke-width="2" stroke-linecap="round"/>
+                                        <line x1="40" y1="62" x2="60" y2="62" stroke="rgba(190,145,255,0.88)" stroke-width="2" stroke-linecap="round"/>
+                                        <!-- Beam (tilted: left heavy, right light) -->
+                                        <line x1="16" y1="52" x2="84" y2="30" stroke="rgba(190,145,255,0.88)" stroke-width="2.5" stroke-linecap="round"/>
+                                        <!-- Left string and pan -->
+                                        <line x1="16" y1="52" x2="16" y2="60" stroke="rgba(190,145,255,0.70)" stroke-width="1.5" stroke-linecap="round"/>
+                                        <line x1="8"  y1="60" x2="24" y2="60" stroke="rgba(190,145,255,0.88)" stroke-width="2" stroke-linecap="round"/>
+                                        <!-- Large circle — institution -->
+                                        <circle cx="16" cy="72" r="10" fill="rgba(120,50,240,0.25)" stroke="rgba(190,145,255,0.88)" stroke-width="2"/>
+                                        <!-- Right string and pan -->
+                                        <line x1="84" y1="30" x2="84" y2="40" stroke="rgba(190,145,255,0.70)" stroke-width="1.5" stroke-linecap="round"/>
+                                        <line x1="78" y1="40" x2="90" y2="40" stroke="rgba(190,145,255,0.88)" stroke-width="2" stroke-linecap="round"/>
+                                        <!-- Small circle — individual -->
+                                        <circle cx="84" cy="48" r="5" fill="rgba(120,50,240,0.20)" stroke="rgba(190,145,255,0.88)" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="node-card" id="card-2">
+                        <div class="card-inner">
+                            <div class="card-header">
+                                <span class="card-node-index"></span>
+                                <h2 class="card-title"></h2>
+                            </div>
+                            <div class="card-divider"></div>
+                            <div class="card-body"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHILD NODE 3 — LEFT -->
+                <div class="node-wrap node-left" data-node="3">
+                    <div class="node-group">
+                        <div class="node child-node" id="node-3">
+                            <div class="node-inner">
+                                <span class="node-index">03</span>
+                                <h2 class="node-title">Loss of Autonomy</h2>
+                                <div class="node-divider"></div>
+                                <div class="node-svg-slot">
+                                    <svg viewBox="0 0 100 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- Top bar -->
+                                        <line x1="14" y1="18" x2="86" y2="18" stroke="rgba(190,145,255,0.88)" stroke-width="2.5" stroke-linecap="round"/>
+                                        <!-- Bottom bar -->
+                                        <line x1="14" y1="82" x2="86" y2="82" stroke="rgba(190,145,255,0.88)" stroke-width="2.5" stroke-linecap="round"/>
+                                        <!-- Vertical bars -->
+                                        <line x1="14" y1="18" x2="14" y2="82" stroke="rgba(190,145,255,0.88)" stroke-width="2" stroke-linecap="round"/>
+                                        <line x1="26" y1="18" x2="26" y2="82" stroke="rgba(190,145,255,0.88)" stroke-width="2" stroke-linecap="round"/>
+                                        <line x1="38" y1="18" x2="38" y2="82" stroke="rgba(190,145,255,0.88)" stroke-width="2" stroke-linecap="round"/>
+                                        <line x1="62" y1="18" x2="62" y2="82" stroke="rgba(190,145,255,0.88)" stroke-width="2" stroke-linecap="round"/>
+                                        <line x1="74" y1="18" x2="74" y2="82" stroke="rgba(190,145,255,0.88)" stroke-width="2" stroke-linecap="round"/>
+                                        <line x1="86" y1="18" x2="86" y2="82" stroke="rgba(190,145,255,0.88)" stroke-width="2" stroke-linecap="round"/>
+                                        <!-- Person inside -->
+                                        <circle cx="50" cy="36" r="7" fill="rgba(120,50,240,0.20)" stroke="rgba(190,145,255,0.88)" stroke-width="1.8"/>
+                                        <line x1="50" y1="43" x2="50" y2="64" stroke="rgba(190,145,255,0.88)" stroke-width="1.8" stroke-linecap="round"/>
+                                        <line x1="38" y1="52" x2="62" y2="52" stroke="rgba(190,145,255,0.88)" stroke-width="1.8" stroke-linecap="round"/>
+                                        <line x1="50" y1="64" x2="42" y2="76" stroke="rgba(190,145,255,0.88)" stroke-width="1.8" stroke-linecap="round"/>
+                                        <line x1="50" y1="64" x2="58" y2="76" stroke="rgba(190,145,255,0.88)" stroke-width="1.8" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="node-card" id="card-3">
+                        <div class="card-inner">
+                            <div class="card-header">
+                                <span class="card-node-index"></span>
+                                <h2 class="card-title"></h2>
+                            </div>
+                            <div class="card-divider"></div>
+                            <div class="card-body"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHILD NODE 4 — RIGHT -->
+                <div class="node-wrap node-right" data-node="4">
+                    <div class="node-group">
+                        <div class="node child-node" id="node-4">
+                            <div class="node-inner">
+                                <span class="node-index">04</span>
+                                <h2 class="node-title">Weaponized Infrastructure</h2>
+                                <div class="node-divider"></div>
+                                <div class="node-svg-slot">
+                                    <svg viewBox="0 0 100 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- Radar scope -->
+                                        <circle cx="50" cy="50" r="36" fill="rgba(120,50,240,0.08)" stroke="rgba(190,145,255,0.85)" stroke-width="2"/>
+                                        <circle cx="50" cy="50" r="24" fill="none" stroke="rgba(190,145,255,0.40)" stroke-width="1.2"/>
+                                        <circle cx="50" cy="50" r="12" fill="none" stroke="rgba(190,145,255,0.40)" stroke-width="1.2"/>
+                                        <!-- Crosshair -->
+                                        <line x1="14" y1="50" x2="86" y2="50" stroke="rgba(190,145,255,0.25)" stroke-width="1"/>
+                                        <line x1="50" y1="14" x2="50" y2="86" stroke="rgba(190,145,255,0.25)" stroke-width="1"/>
+                                        <!-- Sweep -->
+                                        <path d="M 50,50 L 50,14 A 36,36 0 0 1 75.5,24.5 Z" fill="rgba(120,50,240,0.30)"/>
+                                        <line x1="50" y1="50" x2="75.5" y2="24.5" stroke="rgba(190,145,255,0.95)" stroke-width="2" stroke-linecap="round"/>
+                                        <circle cx="50" cy="50" r="2" fill="rgba(190,145,255,0.92)"/>
+                                        <!-- Pings -->
+                                        <circle cx="31" cy="43" r="1.8" fill="rgba(190,145,255,0.90)"/>
+                                        <circle cx="31" cy="43" r="4.5" fill="none" stroke="rgba(190,145,255,0.35)" stroke-width="1"/>
+                                        <circle cx="45" cy="77" r="1.8" fill="rgba(190,145,255,0.85)"/>
+                                        <circle cx="61" cy="41" r="1.8" fill="rgba(190,145,255,0.75)"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="node-card" id="card-4">
+                        <div class="card-inner">
+                            <div class="card-header">
+                                <span class="card-node-index"></span>
+                                <h2 class="card-title"></h2>
+                            </div>
+                            <div class="card-divider"></div>
+                            <div class="card-body"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHILD NODE 5 — LEFT -->
+                <div class="node-wrap node-left" data-node="5">
+                    <div class="node-group">
+                        <div class="node child-node" id="node-5">
+                            <div class="node-inner">
+                                <span class="node-index">05</span>
+                                <h2 class="node-title">Discrimination and Inequality</h2>
+                                <div class="node-divider"></div>
+                                <div class="node-svg-slot">
+                                    <svg viewBox="0 0 100 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- Face circle -->
+                                        <circle cx="50" cy="50" r="19" fill="rgba(120,50,240,0.20)" stroke="rgba(190,145,255,0.88)" stroke-width="2"/>
+                                        <!-- Eyes -->
+                                        <circle cx="44" cy="45" r="2.2" fill="rgba(190,145,255,0.88)" stroke="none"/>
+                                        <circle cx="56" cy="45" r="2.2" fill="rgba(190,145,255,0.88)" stroke="none"/>
+                                        <!-- Frown -->
+                                        <path d="M 42,57 Q 50,51 58,57" fill="none" stroke="rgba(190,145,255,0.88)" stroke-width="2" stroke-linecap="round"/>
+                                        <!-- Top arrow -->
+                                        <line x1="50" y1="8" x2="50" y2="24" stroke="rgba(190,145,255,0.88)" stroke-width="1.8" stroke-linecap="round"/>
+                                        <polygon points="50,27 47,23 53,23" fill="rgba(190,145,255,0.88)"/>
+                                        <!-- Bottom arrow -->
+                                        <line x1="50" y1="92" x2="50" y2="76" stroke="rgba(190,145,255,0.88)" stroke-width="1.8" stroke-linecap="round"/>
+                                        <polygon points="50,73 47,77 53,77" fill="rgba(190,145,255,0.88)"/>
+                                        <!-- Left arrow -->
+                                        <line x1="8" y1="50" x2="24" y2="50" stroke="rgba(190,145,255,0.88)" stroke-width="1.8" stroke-linecap="round"/>
+                                        <polygon points="27,50 23,47 23,53" fill="rgba(190,145,255,0.88)"/>
+                                        <!-- Right arrow -->
+                                        <line x1="92" y1="50" x2="76" y2="50" stroke="rgba(190,145,255,0.88)" stroke-width="1.8" stroke-linecap="round"/>
+                                        <polygon points="73,50 77,47 77,53" fill="rgba(190,145,255,0.88)"/>
+                                        <!-- Top-left diagonal arrow -->
+                                        <line x1="17" y1="17" x2="30" y2="30" stroke="rgba(190,145,255,0.72)" stroke-width="1.6" stroke-linecap="round"/>
+                                        <polygon points="32,32 27,31 31,27" fill="rgba(190,145,255,0.72)"/>
+                                        <!-- Top-right diagonal arrow -->
+                                        <line x1="83" y1="17" x2="70" y2="30" stroke="rgba(190,145,255,0.72)" stroke-width="1.6" stroke-linecap="round"/>
+                                        <polygon points="68,32 73,30 70,27" fill="rgba(190,145,255,0.72)"/>
+                                        <!-- Bottom-left diagonal arrow -->
+                                        <line x1="17" y1="83" x2="30" y2="70" stroke="rgba(190,145,255,0.72)" stroke-width="1.6" stroke-linecap="round"/>
+                                        <polygon points="32,68 27,69 31,73" fill="rgba(190,145,255,0.72)"/>
+                                        <!-- Bottom-right diagonal arrow -->
+                                        <line x1="83" y1="83" x2="70" y2="70" stroke="rgba(190,145,255,0.72)" stroke-width="1.6" stroke-linecap="round"/>
+                                        <polygon points="68,68 73,69 69,73" fill="rgba(190,145,255,0.72)"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="node-card" id="card-5">
+                        <div class="card-inner">
+                            <div class="card-header">
+                                <span class="card-node-index"></span>
+                                <h2 class="card-title"></h2>
+                            </div>
+                            <div class="card-divider"></div>
+                            <div class="card-body"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHILD NODE 6 — RIGHT -->
+                <div class="node-wrap node-right" data-node="6">
+                    <div class="node-group">
+                        <div class="node child-node" id="node-6">
+                            <div class="node-inner">
+                                <span class="node-index">06</span>
+                                <h2 class="node-title">Erosion of Trust</h2>
+                                <div class="node-divider"></div>
+                                <div class="node-svg-slot">
+                                    <svg viewBox="0 0 100 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- Shield outline -->
+                                        <path d="M 50,10 L 86,26 L 86,56 Q 86,76 50,92 Q 14,76 14,56 L 14,26 Z" fill="rgba(120,50,240,0.15)" stroke="rgba(190,145,255,0.88)" stroke-width="2" stroke-linejoin="round"/>
+                                        <!-- Crack -->
+                                        <path d="M 46,16 L 53,36 L 46,50 L 55,68 L 60,82" fill="none" stroke="rgba(190,145,255,0.98)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="node-card" id="card-6">
+                        <div class="card-inner">
+                            <div class="card-header">
+                                <span class="card-node-index"></span>
+                                <h2 class="card-title"></h2>
+                            </div>
+                            <div class="card-divider"></div>
+                            <div class="card-body"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHILD NODE 7 — LEFT -->
+                <div class="node-wrap node-left" data-node="7">
+                    <div class="node-group">
+                        <div class="node child-node" id="node-7">
+                            <div class="node-inner">
+                                <span class="node-index">07</span>
+                                <h2 class="node-title">Normalization of Surveillance</h2>
+                                <div class="node-divider"></div>
+                                <div class="node-svg-slot">
+                                    <svg viewBox="0 0 100 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- Eye shape fill -->
+                                        <path d="M 12,40 Q 50,14 88,40 Q 50,62 12,40 Z" fill="rgba(120,50,240,0.12)"/>
+                                        <!-- Eye upper lid -->
+                                        <path d="M 12,40 Q 50,14 88,40" fill="none" stroke="rgba(190,145,255,0.88)" stroke-width="2" stroke-linecap="round"/>
+                                        <!-- Eye lower lid -->
+                                        <path d="M 12,40 Q 50,62 88,40" fill="none" stroke="rgba(190,145,255,0.88)" stroke-width="2" stroke-linecap="round"/>
+                                        <!-- Iris -->
+                                        <circle cx="50" cy="40" r="10" fill="rgba(120,50,240,0.28)" stroke="rgba(190,145,255,0.88)" stroke-width="2"/>
+                                        <!-- Pupil -->
+                                        <circle cx="50" cy="40" r="5" fill="rgba(90,20,200,0.55)" stroke="rgba(190,145,255,0.88)" stroke-width="1.5"/>
+                                        <!-- Progress bar outline -->
+                                        <rect x="10" y="70" width="80" height="14" rx="7" fill="none" stroke="rgba(190,145,255,0.88)" stroke-width="2"/>
+                                        <!-- Progress fill (~88%) -->
+                                        <rect x="12" y="72" width="66" height="10" rx="5" fill="rgba(120,50,240,0.65)"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="node-card" id="card-7">
+                        <div class="card-inner">
+                            <div class="card-header">
+                                <span class="card-node-index"></span>
+                                <h2 class="card-title"></h2>
+                            </div>
+                            <div class="card-divider"></div>
+                            <div class="card-body"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHILD NODE 8 — RIGHT -->
+                <div class="node-wrap node-right" data-node="8">
+                    <div class="node-group">
+                        <div class="node child-node" id="node-8">
+                            <div class="node-inner">
+                                <span class="node-index">08</span>
+                                <h2 class="node-title">Identity Exposure</h2>
+                                <div class="node-divider"></div>
+                                <div class="node-svg-slot">
+                                    <svg viewBox="0 0 100 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- ID card body -->
+                                        <rect x="18" y="22" width="64" height="46" rx="4" fill="rgba(120,50,240,0.18)" stroke="rgba(190,145,255,0.88)" stroke-width="2"/>
+                                        <!-- Photo placeholder box -->
+                                        <rect x="26" y="30" width="18" height="22" rx="2" fill="rgba(120,50,240,0.30)" stroke="rgba(190,145,255,0.70)" stroke-width="1.5"/>
+                                        <!-- Data field lines -->
+                                        <line x1="52" y1="34" x2="74" y2="34" stroke="rgba(190,145,255,0.80)" stroke-width="1.8" stroke-linecap="round"/>
+                                        <line x1="52" y1="42" x2="74" y2="42" stroke="rgba(190,145,255,0.60)" stroke-width="1.8" stroke-linecap="round"/>
+                                        <line x1="52" y1="50" x2="68" y2="50" stroke="rgba(190,145,255,0.40)" stroke-width="1.8" stroke-linecap="round"/>
+                                        <!-- Fragments breaking away -->
+                                        <line x1="72" y1="16" x2="78" y2="12" stroke="rgba(190,145,255,0.70)" stroke-width="1.5" stroke-linecap="round"/>
+                                        <line x1="82" y1="26" x2="90" y2="22" stroke="rgba(190,145,255,0.60)" stroke-width="1.5" stroke-linecap="round"/>
+                                        <line x1="84" y1="40" x2="93" y2="38" stroke="rgba(190,145,255,0.50)" stroke-width="1.5" stroke-linecap="round"/>
+                                        <line x1="78" y1="56" x2="86" y2="62" stroke="rgba(190,145,255,0.55)" stroke-width="1.5" stroke-linecap="round"/>
+                                        <line x1="58" y1="68" x2="62" y2="76" stroke="rgba(190,145,255,0.50)" stroke-width="1.5" stroke-linecap="round"/>
+                                        <line x1="36" y1="68" x2="32" y2="78" stroke="rgba(190,145,255,0.45)" stroke-width="1.5" stroke-linecap="round"/>
+                                        <line x1="18" y1="54" x2="8"  y2="58" stroke="rgba(190,145,255,0.55)" stroke-width="1.5" stroke-linecap="round"/>
+                                        <line x1="20" y1="34" x2="10" y2="30" stroke="rgba(190,145,255,0.50)" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="node-card" id="card-8">
+                        <div class="card-inner">
+                            <div class="card-header">
+                                <span class="card-node-index"></span>
+                                <h2 class="card-title"></h2>
+                            </div>
+                            <div class="card-divider"></div>
+                            <div class="card-body"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHILD NODE 9 — LEFT -->
+                <div class="node-wrap node-left" data-node="9">
+                    <div class="node-group">
+                        <div class="node child-node" id="node-9">
+                            <div class="node-inner">
+                                <span class="node-index">09</span>
+                                <h2 class="node-title">The Permanent Record</h2>
+                                <div class="node-divider"></div>
+                                <div class="node-svg-slot">
+                                    <svg viewBox="0 0 100 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- Document outline with folded corner -->
+                                        <path d="M 14,6 L 62,6 L 78,22 L 78,84 L 14,84 Z" fill="rgba(120,50,240,0.15)" stroke="rgba(190,145,255,0.88)" stroke-width="2" stroke-linejoin="round"/>
+                                        <!-- Fold corner -->
+                                        <path d="M 62,6 L 62,22 L 78,22" fill="none" stroke="rgba(190,145,255,0.88)" stroke-width="2" stroke-linejoin="round"/>
+                                        <!-- Text lines -->
+                                        <line x1="24" y1="38" x2="68" y2="38" stroke="rgba(190,145,255,0.50)" stroke-width="1.5" stroke-linecap="round"/>
+                                        <line x1="24" y1="48" x2="68" y2="48" stroke="rgba(190,145,255,0.50)" stroke-width="1.5" stroke-linecap="round"/>
+                                        <line x1="24" y1="58" x2="48" y2="58" stroke="rgba(190,145,255,0.50)" stroke-width="1.5" stroke-linecap="round"/>
+                                        <!-- Lock body (centered, overlapping bottom of doc) -->
+                                        <rect x="34" y="76" width="28" height="20" rx="3" fill="rgba(120,50,240,0.30)" stroke="rgba(190,145,255,0.95)" stroke-width="2.5"/>
+                                        <!-- Lock shackle -->
+                                        <path d="M 40,76 L 40,68 A 8,8 0 0 1 56,68 L 56,76" fill="none" stroke="rgba(190,145,255,0.95)" stroke-width="2.5" stroke-linecap="round"/>
+                                        <!-- Keyhole -->
+                                        <circle cx="48" cy="84" r="3" fill="rgba(190,145,255,0.60)"/>
+                                        <line x1="48" y1="87" x2="48" y2="91" stroke="rgba(190,145,255,0.60)" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="node-card" id="card-9">
+                        <div class="card-inner">
+                            <div class="card-header">
+                                <span class="card-node-index"></span>
+                                <h2 class="card-title"></h2>
+                            </div>
+                            <div class="card-divider"></div>
+                            <div class="card-body"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- #node-canvas-wrap -->
+
+            <!-- REFERENCES -->
+            <section id="references-section">
+                <div class="references-card">
+                    <h2 class="references-title">References</h2>
+                    <div class="references-divider"></div>
+                    <ul class="references-list">
+                        <li class="references-item">
+                            <p class="references-desc">Balkin, J. M. (2016). Information fiduciaries and the First Amendment. <em>UC Davis Law Review</em>, 49(4), 1183–1234.</p>
+                        </li>
+                        <li class="references-item">
+                            <p class="references-desc">Bashir, M. A., &amp; Wilson, C. (2018). Diffusion of user tracking data in the online advertising ecosystem. <em>Proceedings on Privacy Enhancing Technologies</em>, 2018(4), 85–103.</p>
+                        </li>
+                        <li class="references-item">
+                            <p class="references-desc">Foucault, M. (1977). <em>Discipline and Punish: The Birth of the Prison</em> (A. Sheridan, Trans.). Vintage Books.</p>
+                        </li>
+                        <li class="references-item">
+                            <p class="references-desc">Google Spain SL and Google Inc. v. Agencia Española de Protección de Datos (AEPD) and Mario Costeja González, Case C-131/12, Court of Justice of the European Union (13 May 2014).</p>
+                        </li>
+                        <li class="references-item">
+                            <p class="references-desc">Lum, K., &amp; Isaac, W. (2016). To predict and serve? <em>Significance</em>, 13(5), 14–19.</p>
+                        </li>
+                        <li class="references-item">
+                            <p class="references-desc">Mayer-Schönberger, V. (2009). <em>Delete: The Virtue of Forgetting in the Digital Age</em>. Princeton University Press.</p>
+                        </li>
+                        <li class="references-item">
+                            <p class="references-desc">Obar, J. A., &amp; Oeldorf-Hirsch, A. (2020). The biggest lie on the internet: Ignoring the privacy policies and terms of service policies of social networking services. <em>Information, Communication &amp; Society</em>, 23(1), 128–147. <a href="https://doi.org/10.1080/1369118X.2018.1486870" class="references-link" target="_blank" rel="noopener noreferrer">https://doi.org/10.1080/1369118X.2018.1486870</a></p>
+                        </li>
+                        <li class="references-item">
+                            <p class="references-desc">Penney, J. W. (2016). Chilling effects: Online surveillance and Wikipedia use. <em>Berkeley Technology Law Journal</em>, 31(1), 117–182.</p>
+                        </li>
+                        <li class="references-item">
+                            <p class="references-desc">Richards, N. M. (2013). The dangers of surveillance. <em>Harvard Law Review</em>, 126(7), 1934–1965.</p>
+                        </li>
+                        <li class="references-item">
+                            <p class="references-desc">Susser, D., Roessler, B., &amp; Nissenbaum, H. (2019). Online manipulation: Hidden influences in a digital world. <em>Georgetown Law Technology Review</em>, 4(1), 1–45.</p>
+                        </li>
+                        <li class="references-item">
+                            <p class="references-desc">Tufekci, Z. (2014). Engineering the public: Big data, surveillance and computational politics. <em>First Monday</em>, 19(7). <a href="https://doi.org/10.5210/fm.v19i7.4901" class="references-link" target="_blank" rel="noopener noreferrer">https://doi.org/10.5210/fm.v19i7.4901</a></p>
+                        </li>
+                        <li class="references-item">
+                            <p class="references-desc">Vaughan, D. (1996). <em>The Challenger Launch Decision: Risky Technology, Culture, and Deviance at NASA</em>. University of Chicago Press.</p>
+                        </li>
+                        <li class="references-item">
+                            <p class="references-desc">Zuboff, S. (2019). <em>The Age of Surveillance Capitalism: The Fight for a Human Future at the New Frontier of Power</em>. PublicAffairs.</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+
+        <footer id="footer">
+            <div class="footer-inner">
+                <div class="footer-text">
+                    <p class="footer-credit">An independent project on data privacy and collection practices.</p>
+                    <p class="footer-statement">No cookies, analytics, or trackers.</p>
+                    <p class="footer-disclaimer">Code MIT licensed. Written content not for reproduction without permission.</p>
+                    <p class="footer-disclaimer">Built by Hasan Butte &nbsp;|&nbsp;
+                        <a href="https://github.com/hasan-butte/URData_" target="_blank" rel="noopener" class="footer-gh-link">View on GitHub</a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <button id="scroll-top-btn" class="scroll-top-btn" aria-label="Back to top">&#8593;</button>
+
+<script src="../assets/js/so-what-script.js"></script>
+    </body>
+</html>
