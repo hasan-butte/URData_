@@ -1,0 +1,767 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:ital,wght@0,300;0,400;0,600;1,300&display=swap');
+
+/* ============================================================
+   CSS CUSTOM PROPERTIES — matches home page palette exactly
+   ============================================================ */
+:root {
+    --bg-primary:    #080010;
+    --bg-secondary:  #0d0018;
+    --bg-card:       #130026;
+    --bg-card-hover: #1c0038;
+    --text-primary:  #f0edf8;
+    --text-secondary:#d6d2ef;
+    --text-dim:      #484460;
+
+    --accent:        #7a30ff;
+    --accent-bright: #a060ff;
+    --accent-dim:    rgba(120, 50, 255, 0.10);
+    --accent-glow:   rgba(120, 50, 255, 0.38);
+    --accent-line:   #4e1888;
+
+    --red:           #ff1a1a;
+    --red-glow:      rgba(255, 26, 26, 0.45);
+
+    --font-mono: 'Share Tech Mono', 'Courier New', monospace;
+    --font-body: 'Inter', 'Segoe UI', sans-serif;
+
+    --nav-h:    60px;
+    --header-h: 72px;
+    --ease:     0.3s ease;
+
+    /* Commonality pill colors */
+    --pill-rare-bg:      rgba(30,  130,  80,  0.20);
+    --pill-rare-text:    #5de8a0;
+    --pill-rare-border:  rgba(93,  232, 160,  0.35);
+
+    --pill-uncommon-bg:      rgba(100, 150,  30,  0.20);
+    --pill-uncommon-text:    #b0e040;
+    --pill-uncommon-border:  rgba(176, 224,  64,  0.35);
+
+    --pill-common-bg:      rgba(150, 130,  10,  0.20);
+    --pill-common-text:    #dcc030;
+    --pill-common-border:  rgba(220, 192,  48,  0.35);
+
+    --pill-widespread-bg:      rgba(170,  80,  20,  0.20);
+    --pill-widespread-text:    #e88030;
+    --pill-widespread-border:  rgba(232, 128,  48,  0.35);
+
+    --pill-nu-bg:      rgba(170,  28,  28,  0.22);
+    --pill-nu-text:    #e85050;
+    --pill-nu-border:  rgba(232,  80,  80,  0.38);
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-line) var(--bg-secondary);
+}
+
+::-webkit-scrollbar          { width: 5px; }
+::-webkit-scrollbar-track    { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb    { background: var(--accent-line); border-radius: 3px; }
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.72;
+    overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ============================================================
+   NAVBAR — identical to home page
+   ============================================================ */
+#navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-h);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+    background: rgba(8, 0, 16, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(122, 48, 255, 0.14);
+    z-index: 1000;
+}
+
+.nav-eye-link {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+#nav-eye-svg {
+    width: 72px;
+    height: 36px;
+    filter: drop-shadow(0 0 5px var(--red-glow));
+    transition: filter var(--ease);
+}
+#nav-eye-svg:hover {
+    filter: drop-shadow(0 0 10px var(--red-glow));
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 0;
+    flex: 1;
+    justify-content: space-evenly;
+    padding-left: 2rem;
+}
+
+.nav-links a {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: rgba(235, 235, 255, 0.88);
+    position: relative;
+    padding-bottom: 3px;
+    transition: color var(--ease);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 1px;
+    background: var(--accent-bright);
+    transition: width 0.35s ease;
+}
+
+.nav-links a:hover              { color: var(--accent-bright); }
+.nav-links a:hover::after       { width: 100%; }
+
+.nav-links a.nav-current {
+    color: var(--accent-bright);
+}
+.nav-links a.nav-current::after {
+    width: 100%;
+    opacity: 0.5;
+}
+
+/* ── Nav link hover tooltips ── */
+.nav-links li {
+    position: relative;
+}
+
+.nav-links li::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: calc(100% + 14px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-4px);
+    width: max-content;
+    max-width: 200px;
+    padding: 0.6rem 0.85rem;
+    background: var(--bg-card);
+    border: 1px solid rgba(122, 48, 255, 0.30);
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: rgba(240, 238, 250, 0.96);
+    text-align: center;
+    text-transform: none;
+    letter-spacing: normal;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45), 0 0 14px var(--accent-dim);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 1001;
+}
+
+.nav-links li:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.nav-links li:first-child::after {
+    left: 0;
+    transform: translateX(0) translateY(-4px);
+}
+.nav-links li:first-child:hover::after {
+    transform: translateX(0) translateY(0);
+}
+
+.nav-links li.nav-tip-right::after {
+    left: auto;
+    right: 0;
+    transform: translateX(0) translateY(-4px);
+}
+.nav-links li.nav-tip-right:hover::after {
+    transform: translateX(0) translateY(0);
+}
+
+/* ── Shared eye SVG styles ── */
+.eye-sclera    { fill: #c0c0cc; }
+.eye-lid-shade { fill: #484460; opacity: 0.45; }
+.eye-iris      { fill: #b00000; }
+.eye-iris-ring { fill: none; stroke: #780000; stroke-width: 2.5; }
+.eye-iris-mid  { fill: none; stroke: #860000; stroke-width: 1; opacity: 0.6; }
+.eye-pupil     { fill: #0a000c; }
+.eye-gleam     { fill: white; opacity: 0.62; }
+.eye-outline   { fill: none; stroke: #383848; stroke-width: 1.5; }
+.eye-lid-line  { fill: none; stroke: #545468; stroke-width: 2; }
+
+/* ============================================================
+   WIRE CANVAS — fixed, full viewport, behind everything
+   ============================================================ */
+#wire-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ============================================================
+   FIXED HEADER
+   ============================================================ */
+#collected-header {
+    position: fixed;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    height: var(--header-h);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+    background: rgba(8, 0, 16, 0.84);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(122, 48, 255, 0.16);
+    z-index: 100;
+}
+
+.header-title-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.header-title {
+    font-family: var(--font-mono);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--text-primary);
+    letter-spacing: 0.04em;
+    text-shadow: 0 0 20px var(--accent-glow);
+    white-space: nowrap;
+}
+
+.header-right {
+    flex-shrink: 0;
+}
+
+/* ── Dropdown ── */
+.dropdown-wrap {
+    position: relative;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: rgba(122, 48, 255, 0.18);
+    border: 1px solid rgba(122, 48, 255, 0.55);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    padding: 0.55rem 1.3rem;
+    box-shadow: 0 0 10px rgba(122, 48, 255, 0.18);
+    cursor: pointer;
+    transition: background var(--ease), border-color var(--ease);
+}
+
+.dropdown-toggle:hover,
+.dropdown-toggle[aria-expanded="true"] {
+    background: rgba(122, 48, 255, 0.20);
+    border-color: rgba(160, 96, 255, 0.55);
+}
+
+.dropdown-arrow {
+    font-size: 0.75rem;
+    transition: transform var(--ease);
+    display: inline-block;
+}
+
+.dropdown-toggle[aria-expanded="true"] .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 240px;
+    background: rgba(13, 0, 24, 0.97);
+    border: 1px solid rgba(122, 48, 255, 0.28);
+    border-radius: 8px;
+    list-style: none;
+    padding: 0.35rem 0;
+    z-index: 200;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(100, 40, 200, 0.12);
+    backdrop-filter: blur(12px);
+}
+
+.dropdown-menu.open {
+    display: block;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 0.5rem 1.1rem;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    color: rgba(220, 215, 255, 0.82);
+    transition: color var(--ease), background var(--ease), padding-left 0.2s ease;
+}
+
+.dropdown-menu li a:hover {
+    color: var(--text-primary);
+    background: rgba(122, 48, 255, 0.14);
+    padding-left: 1.5rem;
+}
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+#collected-main {
+    position: relative;
+    z-index: 1;
+    padding-top: calc(var(--nav-h) + var(--header-h) + 3rem);
+    padding-bottom: 4rem;
+}
+
+.cards-container {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+/* ============================================================
+   METHOD CARDS
+   ============================================================ */
+.method-card {
+    background: var(--bg-card);
+    border: 2px solid rgba(150, 90, 255, 0.32);
+    border-radius: 12px;
+    padding: 2rem 2.4rem;
+    box-shadow:
+        0 0 0 1px rgba(122, 48, 255, 0.10),
+        0 8px 32px rgba(50, 15, 110, 0.40),
+        0 0 20px rgba(120, 50, 255, 0.10);
+    transition:
+        background   0.3s ease,
+        border-color 0.3s ease,
+        box-shadow   0.3s ease,
+        transform    0.3s ease;
+
+    /* Initial state for scroll animation */
+    opacity: 0;
+    transform: translateY(28px);
+}
+
+.method-card.visible {
+    animation: cardSlideUp 0.6s ease forwards;
+}
+
+.method-card:hover,
+.method-card.jump-glow {
+    background: var(--bg-card-hover);
+    border-color: rgba(180, 130, 255, 0.65);
+    box-shadow:
+        0 0 0 1px rgba(160, 96, 255, 0.22),
+        0 12px 58px rgba(100, 40, 200, 0.40),
+        0 0 48px rgba(130, 60, 255, 0.24);
+}
+
+.method-card:hover {
+    transform: translateY(-2px) scale(1.005);
+}
+
+/* ── Card header line (click target for the whole card) ── */
+.card-header-line {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: inherit;
+    text-align: left;
+    font: inherit;
+}
+
+.card-header-line:hover .method-name { color: var(--accent-bright); }
+
+.card-arrow {
+    font-size: 1.1rem;
+    color: var(--accent-bright);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.method-card.open .card-arrow {
+    transform: rotate(180deg);
+}
+
+.method-name {
+    font-family: var(--font-mono);
+    font-size: clamp(1.25rem, 3vw, 1.7rem);
+    color: var(--text-primary);
+    letter-spacing: 0.03em;
+    text-shadow: 0 0 14px var(--accent-glow);
+}
+
+/* ── Commonality pills ── */
+.commonality-pill {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.32rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    flex-shrink: 0;
+    font-weight: 600;
+}
+
+.commonality-pill.rare {
+    background: var(--pill-rare-bg);
+    color: var(--pill-rare-text);
+    border-color: var(--pill-rare-border);
+}
+
+.commonality-pill.uncommon {
+    background: var(--pill-uncommon-bg);
+    color: var(--pill-uncommon-text);
+    border-color: var(--pill-uncommon-border);
+}
+
+.commonality-pill.common {
+    background: var(--pill-common-bg);
+    color: var(--pill-common-text);
+    border-color: var(--pill-common-border);
+}
+
+.commonality-pill.widespread {
+    background: var(--pill-widespread-bg);
+    color: var(--pill-widespread-text);
+    border-color: var(--pill-widespread-border);
+}
+
+.commonality-pill.near-universal {
+    background: var(--pill-nu-bg);
+    color: var(--pill-nu-text);
+    border-color: var(--pill-nu-border);
+}
+
+/* ── Collapsible card body (whole card expands/collapses) ── */
+.card-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.method-card.open .card-body {
+    max-height: 6000px;
+}
+
+.card-body-inner {
+    padding-top: 1.2rem;
+}
+
+/* ── Card sections ── */
+.card-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    border-top: 1px solid rgba(122, 48, 255, 0.14);
+    padding-top: 1.1rem;
+    margin-top: 1.1rem;
+}
+
+.card-section:first-child {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.section-label {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #38c8c0;
+    opacity: 0.85;
+}
+
+.card-section p {
+    font-size: 0.975rem;
+    color: rgba(200, 195, 230, 0.88);
+    line-height: 1.82;
+}
+
+.card-section p:last-child {
+    margin-bottom: 0;
+}
+
+.card-section strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.card-section em {
+    color: rgba(210, 205, 240, 0.78);
+    font-style: italic;
+}
+
+.accent-text {
+    color: var(--accent-bright);
+}
+
+/* ── Image placeholder ── */
+.img-placeholder {
+    border: 1px dashed rgba(122, 48, 255, 0.38);
+    border-radius: 7px;
+    padding: 2.8rem 1rem;
+    text-align: center;
+    color: var(--text-dim);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    margin: 0.4rem 0;
+    background: rgba(122, 48, 255, 0.04);
+}
+
+/* ── Sources list ── */
+.sources-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.sources-list li {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.sources-list li::before {
+    content: '→ ';
+    color: var(--accent);
+    font-family: var(--font-mono);
+}
+
+.source-link {
+    color: var(--accent-bright);
+    position: relative;
+    padding-bottom: 1px;
+    transition: color var(--ease);
+}
+
+.source-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent-bright);
+    transition: width 0.32s ease;
+}
+
+.source-link:hover {
+    color: var(--text-primary);
+}
+
+.source-link:hover::after {
+    width: 100%;
+}
+
+/* ============================================================
+   FOOTER — identical to home page
+   ============================================================ */
+#footer {
+    position: relative;
+    z-index: 1;
+    padding: 2.5rem;
+    border-top: 1px solid rgba(122, 48, 255, 0.13);
+    background: var(--bg-secondary);
+}
+
+.footer-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    min-height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.footer-left { display: flex; align-items: center; gap: 2rem; flex-shrink: 0; }
+
+.footer-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    text-align: left;
+}
+
+.footer-divider {
+    width: 1px;
+    align-self: stretch;
+    background: rgba(122, 48, 255, 0.18);
+    flex-shrink: 0;
+}
+
+.footer-trademark {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: rgba(225, 220, 245, 0.88);
+    line-height: 1.65;
+    text-align: right;
+    max-width: 340px;
+    font-style: italic;
+}
+
+.footer-credit {
+    font-family: var(--font-mono);
+    font-size: 1.075rem;
+    color: rgba(235, 230, 255, 0.96);
+    letter-spacing: 0.03em;
+}
+
+.footer-statement {
+    font-family: var(--font-mono);
+    font-size: 1.075rem;
+    color: rgba(235, 230, 255, 0.96);
+    letter-spacing: 0.02em;
+}
+
+.footer-disclaimer {
+    font-family: var(--font-mono);
+    font-size: 1.075rem;
+    color: rgba(235, 230, 255, 0.96);
+    font-style: italic;
+    letter-spacing: 0.02em;
+}
+
+.footer-gh-link {
+    color: var(--accent-bright);
+    text-decoration: none;
+    transition: color var(--ease);
+}
+
+.footer-gh-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* ============================================================
+   FIXED SCROLL-TO-TOP BUTTON
+   ============================================================ */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 90;
+    width: 56px;
+    height: 56px;
+    background: rgba(122, 48, 255, 0.32);
+    border: 1.5px solid rgba(160, 96, 255, 0.70);
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 16px rgba(122, 48, 255, 0.45), 0 0 32px rgba(122, 48, 255, 0.20);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--ease), background var(--ease), transform var(--ease), box-shadow var(--ease);
+}
+
+.scroll-top-btn.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.scroll-top-btn:hover {
+    background: rgba(122, 48, 255, 0.52);
+    box-shadow: 0 0 22px rgba(122, 48, 255, 0.65), 0 0 50px rgba(122, 48, 255, 0.30);
+    transform: translateY(-3px);
+}
+
+/* ============================================================
+   KEYFRAME ANIMATIONS
+   ============================================================ */
+@keyframes cardSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================================
+   RESPONSIVE — desktop-first, basic mobile stack
+   ============================================================ */
+@media (max-width: 860px) {
+    .cards-container {
+        padding: 0 1.2rem;
+    }
+    .method-card {
+        padding: 1.6rem 1.5rem;
+    }
+    .header-title {
+        font-size: 0.82rem;
+    }
+}
+
+@media (max-width: 600px) {
+    #collected-header {
+        padding: 0 1rem;
+    }
+    .card-header-line {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    .scroll-top-btn {
+        bottom: 1.2rem;
+        right: 1.2rem;
+    }
+}

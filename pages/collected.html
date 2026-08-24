@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Collected Data — URData</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="../assets/css/collected-style.css" />
+    </head>
+    <body>
+
+        <!-- Animated Wire Background -->
+        <canvas id="wire-canvas"></canvas>
+
+        <!-- ================================================
+             NAVBAR
+             ================================================ -->
+        <nav id="navbar">
+            <a href="../index.html" id="nav-eye-link" class="nav-eye-link" aria-label="Back to home">
+                <svg id="nav-eye-svg" class="eye-svg" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <clipPath id="nav-eye-clip">
+                            <path d="M 5,30 C 27,8 93,8 115,30 C 93,52 27,52 5,30 Z" />
+                        </clipPath>
+                    </defs>
+                    <path class="eye-sclera"    d="M 5,30 C 27,8  93,8  115,30 C 93,52 27,52 5,30 Z" />
+                    <path class="eye-lid-shade" d="M 5,30 C 27,8  93,8  115,30 C 80,18 40,18 5,30 Z" />
+                    <g clip-path="url(#nav-eye-clip)">
+                        <circle class="eye-iris"      cx="60" cy="30" r="17" />
+                        <circle class="eye-iris-ring" cx="60" cy="30" r="17" />
+                        <circle class="eye-iris-mid"  cx="60" cy="30" r="11" />
+                        <circle id="nav-pupil"        class="eye-pupil" cx="60" cy="30" r="8" />
+                        <ellipse id="nav-highlight"   class="eye-gleam" cx="55" cy="25" rx="3.5" ry="2.5" />
+                    </g>
+                    <path class="eye-outline"   d="M 5,30 C 27,8  93,8  115,30 C 93,52 27,52 5,30 Z" />
+                    <path class="eye-lid-line"  d="M 5,30 C 27,8  93,8  115,30" />
+                </svg>
+            </a>
+            <ul class="nav-links">
+                <li data-tooltip="What they know about you might surprise you."><a href="collected.html" class="nav-current">Collected Data</a></li>
+                <li data-tooltip="Surveillance doesn't stay digital for long."><a href="so-what.html">So What?</a></li>
+                <li data-tooltip="The gap between knowing and doing something about it."><a href="now-what.html">Now What?</a></li>
+                <li data-tooltip="Don't take our word for it." class="nav-tip-right"><a href="resources.html">Resources</a></li>
+            </ul>
+        </nav>
+
+        <!-- ================================================
+             FIXED HEADER
+             ================================================ -->
+        <header id="collected-header">
+            <a href="#" class="header-title-link"><h1 class="header-title">How Your Data Is Collected</h1></a>
+            <div class="header-right">
+                <div class="dropdown-wrap">
+                    <button class="dropdown-toggle" id="dropdown-toggle" aria-haspopup="listbox" aria-expanded="false">
+                        Jump to Method <span class="dropdown-arrow">▾</span>
+                    </button>
+                    <ul class="dropdown-menu" id="dropdown-menu" role="listbox">
+                        <li><a href="#card-12">AI &amp; Chatbot Data</a></li>
+                        <li><a href="#card-4">Algorithms</a></li>
+                        <li><a href="#card-7">Web Browsers</a></li>
+                        <li><a href="#card-6">Facial Recognition</a></li>
+                        <li><a href="#card-5">Financial Transactions</a></li>
+                        <li><a href="#card-11">Genetic Data</a></li>
+                        <li><a href="#card-9">Internet Providers</a></li>
+                        <li><a href="#card-1">Location Trackers</a></li>
+                        <li><a href="#card-8">Operating Systems</a></li>
+                        <li><a href="#card-2">Smart Devices</a></li>
+                        <li><a href="#card-3">Social Networks</a></li>
+                        <li><a href="#card-10">Wearable &amp; Health Data</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <!-- ================================================
+             MAIN CONTENT
+             ================================================ -->
+        <main id="collected-main">
+            <div class="cards-container">
+
+                <!-- ── CARD 1 ── -->
+                <article class="method-card" id="card-12">
+                    <button class="card-header-line" type="button" aria-expanded="false">
+                        <h2 class="method-name">AI and Chatbot Conversational Data</h2>
+                        <span class="commonality-pill widespread">Widespread</span>
+                        <span class="card-arrow">▾</span>
+                    </button>
+                    <div class="card-body">
+                        <div class="card-body-inner">
+                        <section class="card-section">
+                            <h3 class="section-label">Description</h3>
+                        <p>AI chatbots are used for tasks ranging from homework help to medical questions to emotional support, and the format invites unusual candor. People type things into a chat window that they might hesitate to say to another person: symptoms they're worried about, relationship problems, unreleased business ideas, or workplace details they're trying to sort through.</p>
+                        <p>On many consumer platforms, these conversations are <strong>collected by default and used as training data</strong>, meaning the text is reviewed and fed back into the system to adjust how it responds to future users. This process is separate from ordinary account deletion: conversations flagged for training or safety review can be <strong>retained on backend systems for a defined period even after a user deletes their chat history</strong>. The setting to turn off training is <em>rarely surfaced during account creation</em>, so most users never see it, and it applies regardless of the conversation's content, including work-related material like source code or meeting notes typed into a personal account to get a faster answer.</p>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">Real-World Example</h3>
+                        <p>This is the mechanism described above in practice. OpenAI's own help documentation states that <strong>Free, Plus, and Pro personal accounts have data sharing enabled by default</strong>, and disabling it only affects new conversations going forward. There is also a documented exception: even after a user opts out, submitting feedback on a response can reverse that choice for that specific exchange, since, per OpenAI's own help documentation, "the entire conversation associated with that feedback may be used to train our models" (OpenAI Help Center, 2026).</p>
+                        <p>The consequences of this default aren't hypothetical. In 2023, <strong>Samsung banned employees company-wide from using generative AI tools</strong> after engineers uploaded proprietary source code and internal meeting notes into ChatGPT through consumer accounts with training enabled by default. Samsung's internal memo, reported by Bloomberg, cited "growing concerns about security risks presented by generative AI." Once submitted, <strong>the data could not be retrieved or deleted</strong>, showing how a single default setting, left unchanged, turned a routine debugging question into a permanent exposure of internal source code.</p>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">Sources</h3>
+                        <ul class="sources-list">
+                            <li><a href="https://help.openai.com/en/articles/8983130-what-if-i-want-to-keep-my-history-on-but-disable-model-training" class="source-link" target="_blank" rel="noopener">OpenAI Help Center — "What if I want to keep my history on but disable model training?"</a></li>
+                            <li><a href="https://help.openai.com/en/articles/5722486-how-your-data-is-used-to-improve-model-performance" class="source-link" target="_blank" rel="noopener">OpenAI Help Center — "How your data is used to improve model performance"</a></li>
+                            <li><a href="https://www.bloomberg.com/news/articles/2023-05-02/samsung-bans-chatgpt-and-other-generative-ai-use-by-staff-after-leak" class="source-link" target="_blank" rel="noopener">Bloomberg News — "Samsung Bans ChatGPT and Other Generative AI Use by Staff After Leak"</a> (paywalled; corroborating coverage from Forbes, CNBC, and NBC News, all published May 2, 2023)</li>
+                        </ul>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">TL;DR</h3>
+                        <p>AI chatbots collect the content of conversations by default on most consumer accounts, and that data can be used to train future versions of the model. Disabling this is possible but not automatic, and even opting out can be reversed by something as small as a feedback click. OpenAI's own documentation confirms both defaults, and a well-documented 2023 incident, where Samsung banned ChatGPT after employees uploaded proprietary code, shows the real-world stakes. Treat anything typed into a chatbot as potentially retained.</p>
+                        </section>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ── CARD 2 ── -->
+                <article class="method-card" id="card-4">
+                    <button class="card-header-line" type="button" aria-expanded="false">
+                        <h2 class="method-name">Behavioral and Algorithmic Profiling</h2>
+                        <span class="commonality-pill near-universal">Near-Universal</span>
+                        <span class="card-arrow">▾</span>
+                    </button>
+                    <div class="card-body">
+                        <div class="card-body-inner">
+                        <section class="card-section">
+                            <h3 class="section-label">Description</h3>
+                        <p>Nearly every interaction with a digital platform generates a signal that gets logged: what you click, what you skip, how long you pause on a piece of content, what you add to a cart without buying, even how fast you scroll. This process is called <em>behavioral profiling</em>, the practice of using someone's actions on a platform, rather than anything they explicitly typed or stated, to build a model of their interests and tendencies. That model then powers the recommendation algorithm deciding what content, product, or ad appears next.</p>
+                        <p>The goal of most of these algorithms is to <strong>maximize engagement</strong>, the amount of time and attention a person spends on the platform. To do that, a system has to identify what reliably provokes a reaction, whether that's curiosity, outrage, or anxiety, since <strong>a strong emotional response predicts continued engagement more reliably than a neutral one does</strong>. The same technique operates across streaming, e-commerce, search, and news platforms alike: <em>behavior in, prediction out</em>.</p>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">Real-World Example</h3>
+                        <p>The Cambridge Analytica case shows this kind of profiling extracted at scale and repurposed for a different use. In 2013, researcher Aleksandr Kogan built a Facebook quiz app, formally called the GSRApp, that collected personality-related responses from roughly 250,000 to 270,000 people who took it. Facebook's data permissions at the time also let the app collect information from those users' friends without their direct knowledge, <strong>reaching an estimated 87 million profiles</strong>. The FTC later brought a complaint describing the operation as built to "harvest personal information from Facebook users for political and commercial targeted advertising purposes" (FTC v. Kogan and Nix, 2019).</p>
+                        <p>This data was passed to Cambridge Analytica, a political consulting firm funded by Republican donor Robert Mercer, which said it classified people using a five-trait personality model and matched those scores against U.S. voter records to guide political advertising during the 2016 Cruz and Trump campaigns. <em>Whether this specific targeting method actually worked is disputed, including by Kogan himself</em>, but its regulatory consequences are not: the FTC separately found that Facebook "repeatedly used deceptive disclosures and settings to undermine users' privacy preferences," and <strong>fined the company $5 billion</strong>, while the SEC fined Facebook a further <strong>$100 million</strong> for misleading investors about the risk. Cambridge Analytica shut down within months.</p>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">Sources</h3>
+                        <ul class="sources-list">
+                            <li><a href="https://www.ftc.gov/system/files/documents/cases/182_3106_kogan-nix_complaint.pdf" class="source-link" target="_blank" rel="noopener">Federal Trade Commission — Complaint, In the Matter of Aleksandr Kogan and Alexander Nix</a></li>
+                            <li><a href="https://www.ftc.gov/news-events/news/press-releases/2019/07/ftc-imposes-5-billion-penalty-sweeping-new-privacy-restrictions-facebook" class="source-link" target="_blank" rel="noopener">Federal Trade Commission — "FTC Imposes $5 Billion Penalty and Sweeping New Privacy Restrictions on Facebook"</a></li>
+                            <li><a href="https://www.sec.gov/newsroom/press-releases/2019-140" class="source-link" target="_blank" rel="noopener">U.S. Securities and Exchange Commission — "Facebook to Pay $100 Million for Misleading Investors About the Risks It Faced From Misuse of User Data"</a></li>
+                        </ul>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">TL;DR</h3>
+                        <p>Platforms convert everyday actions, clicks, pauses, scroll speed, into a behavioral profile used to predict what keeps someone engaged, often by targeting emotional reactions rather than genuine interest. The Cambridge Analytica case showed this kind of data extracted at scale and repurposed for political targeting, a pattern regulators found involved deceptive practices on multiple sides. Limit exposure by periodically resetting ad and content preferences.</p>
+                        </section>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ── CARD 3 ── -->
+                <article class="method-card" id="card-7">
+                    <button class="card-header-line" type="button" aria-expanded="false">
+                        <h2 class="method-name">Browser Tracking</h2>
+                        <span class="commonality-pill near-universal">Near-Universal</span>
+                        <span class="card-arrow">▾</span>
+                    </button>
+                    <div class="card-body">
+                        <div class="card-body-inner">
+                        <section class="card-section">
+                            <h3 class="section-label">Description</h3>
+                        <p>When you visit a website, your browser shares information with it in two ways. The first is cookies: small files that a site, or an advertising network operating through it, stores on your device. Cookies let a site recognize you when you come back, and they've been the backbone of cross-site ad tracking for two decades. The second way is less visible. Every time your browser loads a page, it automatically discloses details about itself: your screen resolution, installed fonts, browser version, and timezone, among others. No single detail is unique. But combined, these details form what's called a <em>fingerprint</em>, <strong>specific enough to identify one browser out of billions</strong>.</p>
+                        <p>In-app browsers create a related exposure. When you tap a link inside a social media app, the app often doesn't hand the link off to your default browser. Instead, it opens the page in its own built-in browser, one the app controls directly. That built-in browser can run its own code on the page, which means it can, in principle, <strong>observe your taps, text selections, and form inputs</strong>, even on a site the app has nothing to do with. Both fingerprinting and in-app tracking <strong>work regardless of your usual privacy habits</strong>: fingerprinting stores nothing on your device, so there's nothing to clear, and in-app browsing happens by default, with no visible setting to turn it off.</p>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">Real-World Example</h3>
+                        <p>The scale of browser fingerprinting was first demonstrated by the Electronic Frontier Foundation's <em>Panopticlick</em> project. In 2010, EFF collected configuration data from roughly 470,000 browsers that visited its research site and found the overwhelming majority could be uniquely identified using only the technical details browsers routinely share, no cookies required. EFF reported that <strong>84% of the browsers tested had a completely unique fingerprint</strong>, rising to 94% among browsers with Flash or Java installed, and that "only 1% had fingerprints that were seen more than twice" (EFF, 2010). The project was rebranded and relaunched in 2020 as <em>Cover Your Tracks</em>, adding newer techniques like canvas and WebGL fingerprinting to its testing, and the underlying finding has held: <strong>a browser's ordinary configuration is usually enough to track it across the web on its own</strong>.</p>
+                        <p>In-app browser tracking was documented independently in 2022, when researcher Felix Krause found that Instagram and Facebook's iOS apps <strong>injected custom JavaScript code into every external website opened inside their built-in browsers</strong>. Krause's tool detected up to 18 added lines of code per page, which he wrote could "monitor all user interactions, like every button and link tapped" on sites the apps themselves didn't operate (Krause, 2022). Meta responded that the code exists to honor users' Apple App Tracking Transparency choices and is used only to aggregate data for advertising and measurement, not to log keystrokes; <em>it did not dispute that the injection itself was occurring</em>.</p>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">Sources</h3>
+                        <ul class="sources-list">
+                            <li><a href="https://coveryourtracks.eff.org/static/browser-uniqueness.pdf" class="source-link" target="_blank" rel="noopener">Eckersley, P. — "How Unique Is Your Web Browser?"</a></li>
+                            <li><a href="https://www.eff.org/deeplinks/2010/05/every-browser-unique-results-fom-panopticlick" class="source-link" target="_blank" rel="noopener">Electronic Frontier Foundation — "Is Every Browser Unique? Results from the Panopticlick Experiment"</a></li>
+                            <li><a href="https://krausefx.com/blog/ios-privacy-instagram-and-facebook-can-track-anything-you-do-on-any-website-in-their-in-app-browser" class="source-link" target="_blank" rel="noopener">Felix Krause — "iOS Privacy: Instagram and Facebook can track anything you do on any website in their in-app browser"</a></li>
+                        </ul>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">TL;DR</h3>
+                        <p>Websites track you through cookies, browser fingerprinting, and in-app browser code injection, methods that mostly work without storing anything on your device. EFF's research found the vast majority of browsers are uniquely identifiable from configuration alone, and a 2022 investigation found Instagram and Facebook injecting tracking code into external sites through their in-app browsers. Switching to a privacy-focused browser and opening links in your default browser instead of an app's built-in one are the most effective defenses.</p>
+                        </section>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ── CARD 4 ── -->
+                <article class="method-card" id="card-6">
+                    <button class="card-header-line" type="button" aria-expanded="false">
+                        <h2 class="method-name">Facial Recognition</h2>
+                        <span class="commonality-pill widespread">Widespread</span>
+                        <span class="card-arrow">▾</span>
+                    </button>
+                    <div class="card-body">
+                        <div class="card-body-inner">
+                        <section class="card-section">
+                            <h3 class="section-label">Description</h3>
+                        <p>Facial recognition works by analyzing the geometry of a face: the distance between the eyes, the shape of the jawline, the contours of the cheekbones. A system captures an image, measures those features, and converts them into a mathematical template called a <em>faceprint</em>, which gets compared against a database of other faces to look for a match. This is deployed more widely than most people realize: retail stores use it to flag suspected shoplifters, airports use it to verify identities, and law enforcement uses it to identify suspects from surveillance footage.</p>
+                        <p>Some of these databases are built by scraping billions of photos already posted publicly online, without the knowledge or consent of the people pictured in them, meaning a face from an old social media post or a friend's photo can end up indexed without anyone involved having agreed to it. This makes facial recognition data fundamentally different from most other personal information: a password can be reset and a credit card can be cancelled, but <strong>a faceprint is a permanent identifier tied to your biology</strong>, and once it's created and stored, <strong>a breach or misuse of it can't be undone</strong>.</p>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">Real-World Example</h3>
+                        <p>Two cases show what happens when facial recognition goes wrong in different settings. From 2012 to 2020, Rite Aid deployed facial recognition in hundreds of stores to flag customers it believed were likely shoplifters, comparing live camera footage against a "persons of interest" watchlist built from security footage, driver's licenses, and criminal background data. The system generated <strong>thousands of false positive matches</strong>, and employees acting on those alerts followed, searched, and in some cases publicly accused customers who had done nothing wrong. The FTC found the errors <strong>fell disproportionately on stores in predominantly Black and Asian communities</strong>, called Rite Aid's practice "reckless," and in December 2023 <strong>banned the company from using facial recognition for five years</strong>, ordering it to delete the images, data, and algorithms it had built (FTC, 2023).</p>
+                        <p>The second case involves Clearview AI, which built one of the largest known facial recognition databases by <strong>scraping over 30 billion photos</strong> from social media and other public web pages without consent, then sold access to it primarily to law enforcement agencies. Regulators in France, Italy, Greece, and the Netherlands each found Clearview in violation of European privacy law and fined the company, together <strong>totaling roughly €100 million</strong>; Australia's privacy regulator separately found violations and ordered data deleted without imposing a fine, and a UK fine was later overturned on jurisdictional grounds. In the U.S., a 2025 class-action settlement resolved claims that the company violated Illinois' biometric privacy law, granting the class <em>a 23% equity stake in Clearview</em> valued at roughly $51.75 million rather than a cash payout, since the company lacked the funds to pay one directly. Clearview continues to operate.</p>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">Sources</h3>
+                        <ul class="sources-list">
+                            <li><a href="https://www.ftc.gov/news-events/news/press-releases/2023/12/rite-aid-banned-using-ai-facial-recognition-after-ftc-says-retailer-deployed-technology-without" class="source-link" target="_blank" rel="noopener">Federal Trade Commission — "Rite Aid Banned from Using AI Facial Recognition After FTC Says Retailer Deployed Technology without Reasonable Safeguards"</a></li>
+                            <li><a href="https://www.cnn.com/2023/12/20/tech/rite-aid-ai-ftc-settlement" class="source-link" target="_blank" rel="noopener">CNN Business — "Rite Aid's 'reckless' use of facial recognition got it banned"</a></li>
+                            <li><a href="https://techcrunch.com/2024/09/03/clearview-ai-hit-with-its-largest-gdpr-fine-yet-as-dutch-regulator-considers-holding-execs-personally-liable/" class="source-link" target="_blank" rel="noopener">TechCrunch — "Clearview AI hit with its largest GDPR fine yet as Dutch regulator considers holding execs personally liable"</a></li>
+                            <li><a href="https://www.regulatoryoversight.com/2025/04/51-75m-settlement-in-clearview-ai-biometric-privacy-litigation-illustrates-creative-resolution-for-startups-facing-parallel-litigation-and-enforcement-action/" class="source-link" target="_blank" rel="noopener">Regulatory Oversight (Troutman Pepper Locke) — "$51.75M Settlement in Clearview AI Biometric Privacy Litigation Illustrates Creative Resolution for Startups Facing Parallel Litigation and Enforcement Action"</a></li>
+                        </ul>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">TL;DR</h3>
+                        <p>Facial recognition identifies you by converting your facial features into a mathematical faceprint, then matching it against a database, and it's used in retail, airports, and law enforcement. Rite Aid used it for years with thousands of false positives that disproportionately hit Black and Asian customers, leading to a five-year FTC ban, while Clearview AI built a facial database by scraping over 30 billion photos and was fined across Europe and sued in the U.S. Unlike a password, your face can't be reset if that data is misused.</p>
+                        </section>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ── CARD 5 ── -->
+                <article class="method-card" id="card-5">
+                    <button class="card-header-line" type="button" aria-expanded="false">
+                        <h2 class="method-name">Financial Transaction Surveillance</h2>
+                        <span class="commonality-pill widespread">Widespread</span>
+                        <span class="card-arrow">▾</span>
+                    </button>
+                    <div class="card-body">
+                        <div class="card-body-inner">
+                        <section class="card-section">
+                            <h3 class="section-label">Description</h3>
+                        <p>Every card swipe, app payment, or online purchase creates a record, and that record includes more than the amount spent: where you were, what time, what you bought, and how often you return to that location. Over months and years, this builds <strong>an extraordinarily detailed picture of a person's life</strong>, income level, health habits, political donations, daily routine, and personal relationships. The companies that process payments, banks, card networks, and payment apps, have access to all of it, and some have <strong>sold aggregated purchase data to advertisers, analytics firms, and insurers</strong> assessing risk.</p>
+                        <p>Peer-to-peer payment apps add a further layer, since some collect not just transaction data but a user's social connections, and a few have historically made <strong>transactions visible by default</strong>, meaning who paid whom, when, and the note attached to the payment could be seen by anyone. Budgeting apps that request bank login credentials get read access to a person's <em>complete transaction history</em>, often routing that data through third-party services. Credit bureaus separately compile profiles from credit applications, payment history, and public records, and in some cases sell that data as well.</p>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">Real-World Example</h3>
+                        <p>In September 2017, Equifax, one of the three major U.S. credit reporting agencies, disclosed a data breach that <strong>exposed the personal information of approximately 147 million people</strong>, about 40% of the U.S. population, including names, Social Security numbers, birth dates, addresses, and in some cases driver's license and credit card numbers. The breach traced back to a known vulnerability in Equifax's web application software; <strong>a patch had been publicly available for months, but the company never applied it</strong>, and attackers moved through its network for 76 days before the intrusion was discovered. Equifax settled with the FTC, the CFPB, and U.S. states for <strong>up to $700 million</strong>, including a $425 million consumer fund and a $100 million civil penalty (FTC, 2019).</p>
+                        <p>On the payment app side, in 2018 Berlin-based researcher Hang Do Thi Duc analyzed all <strong>207,984,218 public Venmo transactions</strong> from 2017, made accessible because <em>Venmo's default setting was public</em>. She was able to view names, transaction dates, and payment notes for millions of users who had never changed that setting, revealing details like rent payments, roommate arrangements, and one user's apparent drug sales. The FTC separately found that Venmo had misled consumers about how much control they had over the privacy of their transactions, and required the company to change its practices as part of a 2018 settlement (FTC, 2018).</p>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">Sources</h3>
+                        <ul class="sources-list">
+                            <li><a href="https://www.ftc.gov/enforcement/refunds/equifax-data-breach-settlement" class="source-link" target="_blank" rel="noopener">Federal Trade Commission — "Equifax Data Breach Settlement"</a></li>
+                            <li><a href="https://www.ftc.gov/news-events/news/press-releases/2019/07/equifax-pay-575-million-part-settlement-ftc-cfpb-states-related-2017-data-breach" class="source-link" target="_blank" rel="noopener">Federal Trade Commission — "Equifax to Pay $575 Million as Part of Settlement with FTC, CFPB, and States Related to 2017 Data Breach"</a></li>
+                            <li><a href="https://www.ftc.gov/news-events/news/press-releases/2018/02/paypal-settles-ftc-charges-venmo-failed-disclose-information-consumers-about-ability-transfer-funds" class="source-link" target="_blank" rel="noopener">Federal Trade Commission — "PayPal Settles FTC Charges that Venmo Failed to Disclose Information to Consumers About the Ability to Transfer Funds and Privacy Settings; Violated Gramm-Leach-Bliley Act"</a></li>
+                            <li><a href="https://publicbydefault.fyi/" class="source-link" target="_blank" rel="noopener">Do Thi Duc, H. — "Public By Default"</a></li>
+                        </ul>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">TL;DR</h3>
+                        <p>Every swipe, transfer, or online payment creates a detailed record of where you go, what you buy, and who you're connected to, one that payment processors, banks, and credit bureaus can access and, in some cases, sell. Equifax's 2017 breach exposed 147 million people's data after the company left a known vulnerability unpatched for months, and a researcher's 2018 analysis of Venmo's public-by-default transactions showed how easily that same kind of data can be exposed to anyone. Limit exposure by being deliberate about which financial tools get access to your accounts.</p>
+                        </section>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ── CARD 6 ── -->
+                <article class="method-card" id="card-11">
+                    <button class="card-header-line" type="button" aria-expanded="false">
+                        <h2 class="method-name">Genetic Data</h2>
+                        <span class="commonality-pill uncommon">Uncommon</span>
+                        <span class="card-arrow">▾</span>
+                    </button>
+                    <div class="card-body">
+                        <div class="card-body-inner">
+                        <section class="card-section">
+                            <h3 class="section-label">Description</h3>
+                        <p>Direct-to-consumer genetic testing works by having a person spit into a tube and mail it to a company, which analyzes the sample and returns a report on ancestry, ethnic background, and predisposition to certain health conditions. What often goes unconsidered is what happens to the data afterward. A company handling this kind of test holds two things: the physical saliva sample and the digital genetic profile derived from it, both of which are <strong>stored indefinitely</strong> by the company and, depending on the terms of service, can be <strong>shared with research partners, pharmaceutical companies, or, in some cases, law enforcement</strong>.</p>
+                        <p><strong>DNA is the most permanent form of personal information that exists</strong>; a password or an address can be changed, a genetic code cannot. It also isn't only information about the person who submitted it. Because relatives share overlapping DNA, one person's sample can reveal inherited health risks, family relationships, and ethnic background for parents, siblings, children, and more distant relatives who never submitted anything themselves. Research on genetic databases has found that even a database covering a small fraction of a population can return a third-cousin-level match for most people of a given ancestry, and law enforcement has used this same technique, known as <em>forensic genealogy</em>, to match crime-scene DNA against <strong>the relatives of a suspect who never took a test at all</strong>.</p>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">Real-World Example</h3>
+                        <p>In March 2025, 23andMe filed for Chapter 11 bankruptcy. The company had been valued at roughly $6 billion when it went public in 2021, but its stock had fallen more than 95% by the time it filed. The bankruptcy <strong>put the genetic data of over 15 million customers up for sale as a company asset</strong>, prompting a bipartisan coalition of 28 state attorneys general to sue in an attempt to block any sale made without individual consumer consent, arguing that DNA is fundamentally different from ordinary business property. California's Attorney General separately issued a public advisory urging consumers to delete their data and request destruction of their saliva samples.</p>
+                        <p>The bankruptcy followed a 2023 data breach in which hackers accessed the profiles of approximately 6.9 million users through a technique called <em>credential stuffing</em>, then exploited a feature that shares data among genetic relatives to reach millions more accounts than the ones initially compromised. Multiple lawsuits allege that 23andMe <strong>knew, but did not initially disclose, that some of the stolen data had been compiled into lists specifically targeting people of Ashkenazi Jewish and Chinese heritage</strong> and sold on the dark web. Biotech company Regeneron Pharmaceuticals initially placed the winning bid for 23andMe's assets at $256 million, but TTAM Research Institute, a nonprofit founded by 23andMe co-founder Anne Wojcicki, ultimately won the sale for $305 million. Because 23andMe's privacy policy allows itself to be changed at any time, a new owner can modify it, and <strong>neither HIPAA nor the Genetic Information Nondiscrimination Act covers</strong> a direct-to-consumer testing company or life, disability, and long-term care insurers.</p>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">Sources</h3>
+                        <ul class="sources-list">
+                            <li><a href="https://www.npr.org/2025/03/24/nx-s1-5338622/23andme-bankruptcy-genetic-data-privacy" class="source-link" target="_blank" rel="noopener">NPR — "23andMe is filing for bankruptcy. Here's what it means for your genetic data"</a></li>
+                            <li><a href="https://www.npr.org/2025/06/30/nx-s1-5451398/23andme-sale-approved-dna-data" class="source-link" target="_blank" rel="noopener">NPR — "Judge OKs sale of 23andMe — and its trove of DNA data — to a nonprofit"</a></li>
+                            <li><a href="https://www.engadget.com/lawsuit-says-23andme-hackers-targeted-users-with-chinese-and-ashkenazi-jewish-heritage-132423486.html" class="source-link" target="_blank" rel="noopener">Engadget — "Lawsuit says 23andMe hackers targeted users with Chinese and Ashkenazi Jewish heritage"</a></li>
+                            <li><a href="https://doi.org/10.1126/science.aau4832" class="source-link" target="_blank" rel="noopener">Erlich, Shor, Pe'er, &amp; Carmi — "Identity inference of genomic data using long-range familial searches" (<em>Science</em>, 2018)</a></li>
+                        </ul>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">TL;DR</h3>
+                        <p>Genetic testing companies hold both your physical saliva sample and your digital DNA profile, and because relatives share DNA, one person's test exposes information about parents, siblings, and children who never took a test themselves. 23andMe's 2025 bankruptcy put 15 million people's genetic data up for sale, following a 2023 breach that exposed 6.9 million profiles and specifically targeted people of Ashkenazi Jewish and Chinese heritage. Unlike a password, DNA can't be changed, and existing law doesn't fully cover it, HIPAA doesn't apply to these companies, and genetic-discrimination protections stop short of life and disability insurance.</p>
+                        </section>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ── CARD 7 ── -->
+                <article class="method-card" id="card-9">
+                    <button class="card-header-line" type="button" aria-expanded="false">
+                        <h2 class="method-name">ISP Traffic Monitoring</h2>
+                        <span class="commonality-pill near-universal">Near-Universal</span>
+                        <span class="card-arrow">▾</span>
+                    </button>
+                    <div class="card-body">
+                        <div class="card-body-inner">
+                        <section class="card-section">
+                            <h3 class="section-label">Description</h3>
+                        <p>Your Internet Service Provider, or ISP, sits at a unique point in your digital life: <strong>every piece of data you send or receive online passes through its infrastructure</strong>. That means your ISP can see which websites you visit, when, for how long, and how much data you transfer. Encryption through HTTPS protects the content of what you do on a site, but it <em>doesn't hide which domain you connected to</em>, so an ISP still knows if you visited a medical site, a political forum, or a dating app, even if it can't see the specific pages.</p>
+                        <p>ISPs have historically made their money by selling access to the internet itself, but the data flowing through their networks has become a product of its own. In the United States, rules that would have required ISPs to get permission before selling browsing data were repealed in 2017, and since then, providers have been <strong>legally free to collect browsing history, app usage, and location data and sell it to marketers and other companies without consent</strong>. What makes this different from tracking by an individual website or app is scope: a website only sees activity on that site, but an ISP sees all traffic across every website, app, and device connected through it. <strong>No single platform has a broader view of a person's online activity than the network it runs through.</strong></p>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">Real-World Example</h3>
+                        <p>In March 2017, Congress voted to repeal broadband privacy rules the FCC had adopted under the Obama administration. The rules, which had not yet gone into effect, would have required ISPs to get opt-in consent before collecting and selling sensitive data including browsing history, app usage, location, and financial and health information. <strong>The House passed the repeal 215 to 205 and the Senate 50 to 48</strong>, both largely along party lines, and President Trump signed it into law in April 2017.</p>
+                        <p>The repeal did more than remove one set of rules. Because it was enacted through the Congressional Review Act, <strong>the FCC is now barred from issuing a substantially similar rule in the future</strong>, and a separate court ruling had already stripped the FTC of authority to regulate ISPs as common carriers. Neither agency currently has clear jurisdiction to write privacy rules for internet providers. Before the repeal, ISPs had already shown a willingness to monetize network access: the FCC <strong>fined Verizon $1.35 million</strong> in 2016 for inserting undeletable tracking headers, known as <em>supercookies</em>, into customer traffic without adequate disclosure, and AT&amp;T <strong>charged its GigaPower fiber customers roughly $29 more a month</strong> if they declined to let the company track their browsing for targeted ads, a program it ended in 2016 after regulatory scrutiny. Separately, AT&amp;T, Sprint, and T-Mobile all confirmed installing diagnostic software called <em>Carrier IQ</em> on phones, which was found capable of logging user activity without a clear way for customers to opt out.</p>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">Sources</h3>
+                        <ul class="sources-list">
+                            <li><a href="https://www.kelleydrye.com/viewpoints/blogs/ad-law-access/congress-repeals-fcc-2016-privacy-order-via-congressional-review-act" class="source-link" target="_blank" rel="noopener">Kelley Drye &amp; Warren LLP — "Congress Repeals FCC 2016 Privacy Order via Congressional Review Act"</a></li>
+                            <li><a href="https://www.lexology.com/library/detail.aspx?g=49286701-4bfe-4117-ba00-a7fa369c6688" class="source-link" target="_blank" rel="noopener">Lexology — "Super settlement for 'Supercookie' privacy law violation which tracked +100 million cell users!"</a></li>
+                            <li><a href="https://fortune.com/2016/09/30/att-internet-fees-privacy" class="source-link" target="_blank" rel="noopener">Fortune — "Here's Why AT&amp;T Internet Customers Won't Pay Extra for Privacy Anymore"</a></li>
+                            <li><a href="https://techcrunch.com/2011/12/16/att-sprint-samsung-and-htc-weigh-in-on-their-use-of-carrier-iq" class="source-link" target="_blank" rel="noopener">TechCrunch — "AT&amp;T, Sprint, Samsung, And HTC Weigh In On Their Use Of Carrier IQ"</a></li>
+                        </ul>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">TL;DR</h3>
+                        <p>Your ISP sees every website you visit, even encrypted ones, since encryption hides content but not the domain you connect to. In 2017, Congress repealed rules that would have required ISPs to get consent before selling that data, and a legal quirk now leaves neither the FCC nor FTC with clear authority to regulate ISP privacy. Verizon was fined for undeletable tracking cookies, and AT&amp;T charged customers extra to opt out of tracking.</p>
+                        </section>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ── CARD 8 ── -->
+                <article class="method-card" id="card-1">
+                    <button class="card-header-line" type="button" aria-expanded="false">
+                        <h2 class="method-name">Location Trackers</h2>
+                        <span class="commonality-pill near-universal">Near-Universal</span>
+                        <span class="card-arrow">▾</span>
+                    </button>
+                    <div class="card-body">
+                        <div class="card-body-inner">
+                        <section class="card-section">
+                            <h3 class="section-label">Description</h3>
+                        <p>Every time you drive past a traffic light, a streetlight, or a parked trailer on the side of the road, there's a growing chance a camera is capturing an image of your vehicle. These systems are called <em>Automated License Plate Readers</em>, or ALPRs: high-speed cameras connected to computers that record a license plate along with the exact location, date, and time it was seen. Some systems also photograph the vehicle itself, and in certain cases, the driver and passengers inside.</p>
+                        <p>That data doesn't disappear after capture. It's uploaded to a central database, often run by a private company, where it can be stored for months or years. Law enforcement agencies can search these databases for any plate, and <strong>in most states no warrant is required</strong>. Private companies collect plate data too, through cameras mounted on tow trucks, repossession vehicles, and contracted personal vehicles, and that data <strong>can be sold to insurers and private investigators</strong>. Modern vehicles add a second layer: many newer cars have built-in <em>telematics</em> systems that record driving speed, braking habits, distance traveled, and location, and some manufacturers share this data with insurance companies, often without the driver's awareness.</p>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">Real-World Example</h3>
+                        <p>Flock Safety is one of the largest ALPR providers in the United States, operating in thousands of communities and reporting billions of vehicle scans processed monthly. In a year-end review, the Electronic Frontier Foundation reported that it had obtained records of <strong>more than 12 million searches logged by over 3,900 law enforcement agencies</strong> between December 2024 and October 2025. Among those records, EFF documented searches connected to political demonstrations, including the 50501, Hands Off, and No Kings protests, and identified <strong>more than 80 agencies that used language referencing Romani ethnicity</strong> in search justifications. EFF also reported a case in which a Texas sheriff's office searched the network for <strong>a woman it said had self-administered an abortion</strong>. In San Jose, California, EFF and the ACLU of Northern California filed a lawsuit stating that the city's police department database had been <strong>searched nearly 4 million times over one year</strong> by agencies across the state.</p>
+                        <p>Separately, an audit by the Illinois Secretary of State found that <strong>U.S. Customs and Border Protection had accessed Illinois license plate data</strong> through Flock's system, which the state's office said violated Illinois privacy law; Flock subsequently paused similar federal access programs nationwide. In California, the Mountain View Police Department disclosed that a setting enabling out-of-state and statewide access to its camera data had been active without the department's knowledge or approval; the city's own statement described this as "a system failure on Flock Safety's part." Mountain View disabled its cameras and later voted to terminate its contract with the company. A class-action complaint filed in February 2026 alleges that out-of-state agencies searched the San Francisco Police Department's Flock database <strong>more than 1.6 million times</strong> over roughly seven months. In response to this and similar findings, <strong>dozens of cities and counties across the country have canceled or declined to renew ALPR contracts</strong>.</p>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">Sources</h3>
+                        <ul class="sources-list">
+                            <li><a href="https://www.eff.org/deeplinks/2025/12/effs-investigations-expose-flock-safetys-surveillance-abuses-2025-review" class="source-link" target="_blank" rel="noopener">Electronic Frontier Foundation — "EFF's Investigations Expose Flock Safety's Surveillance Abuses: 2025 in Review"</a></li>
+                            <li><a href="https://www.eff.org/deeplinks/2025/11/license-plate-surveillance-logs-reveal-racist-policing-against-romani-people" class="source-link" target="_blank" rel="noopener">Electronic Frontier Foundation — "License Plate Surveillance Logs Reveal Racist Policing Against Romani People"</a></li>
+                            <li><a href="https://www.mountainview.gov/Home/Components/News/News/1203/284" class="source-link" target="_blank" rel="noopener">City of Mountain View — City Statement</a></li>
+                            <li><a href="https://www.brennancenter.org/our-work/research-reports/automatic-license-plate-readers-legal-status-and-policy-recommendations" class="source-link" target="_blank" rel="noopener">Brennan Center for Justice — "Automatic License Plate Readers: Legal Status and Policy Recommendations"</a></li>
+                        </ul>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">TL;DR</h3>
+                        <p>ALPR cameras automatically record vehicle plates, locations, and timestamps as you drive, and many newer cars separately track driving data through built-in telematics. Investigations in 2025 and 2026 found that one major ALPR network had been searched in connection with protests, ethnicity-based queries, and reproductive healthcare cases, and that some cities' data had been accessed by outside agencies without their knowledge. In response, a number of cities have canceled or declined to renew their contracts.</p>
+                        </section>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ── CARD 9 ── -->
+                <article class="method-card" id="card-8">
+                    <button class="card-header-line" type="button" aria-expanded="false">
+                        <h2 class="method-name">OS Telemetry</h2>
+                        <span class="commonality-pill near-universal">Near-Universal</span>
+                        <span class="card-arrow">▾</span>
+                    </button>
+                    <div class="card-body">
+                        <div class="card-body-inner">
+                        <section class="card-section">
+                            <h3 class="section-label">Description</h3>
+                        <p>An operating system is the software that runs a computer, and modern operating systems routinely send data about the device and how it's used back to the company that makes them, a practice called <em>telemetry</em>. This happens across most major desktop operating systems, though the amount collected and how much control a user has over it varies significantly between them.</p>
+                        <p>This kind of telemetry is typically split into two tiers: a baseline of device and diagnostic data the manufacturer says is necessary to keep the system secure and working, and a broader, more detailed tier covering things like app usage, browsing activity, and performance metrics. The baseline tier <strong>usually can't be turned off entirely on consumer editions</strong> of an operating system; only business or education-focused editions typically give administrators a way to disable it. Even at the baseline level, data like when applications are launched, how long a device stays running, and network activity patterns <strong>can be specific enough, combined together, to function like an identifier</strong>, regardless of whether the manufacturer describes the data as anonymized.</p>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">Real-World Example</h3>
+                        <p>Microsoft's implementation in Windows is the most extensively documented case of OS telemetry. Windows splits data collection into a "Required" tier, covering device configuration, hardware details, OS version, installed applications, and error reports, and an "Optional" tier that can include app usage statistics, browsing history in Microsoft's own browser, and typing and inking samples. Optional data is off by default on current versions, but <strong>Required data cannot be fully disabled on Windows Home or Pro</strong>; only Enterprise and Education editions let administrators turn it off entirely.</p>
+                        <p>Regulators raised concerns early. In July 2016, France's data protection authority, CNIL, issued Microsoft a formal notice finding that Windows 10 <strong>collected data beyond what was needed to run the system, tracked browsing for advertising without consent</strong>, and had inadequate security protections; CNIL closed the case in 2017 after Microsoft reduced the data collected at its baseline tier and made other changes. Dutch authorities raised similar concerns around the same period, finding that Windows 10's telemetry disclosures did not give users a way to give informed consent. Microsoft later introduced a <em>Diagnostic Data Viewer</em> tool so users could review what was being sent, though <em>the tool only shows data available while it's actively running rather than a complete history</em>. Independent developers have also built third-party tools to give users more granular control than Microsoft's built-in settings allow, though using them can interfere with Windows services that rely on the telemetry pipeline to function.</p>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">Sources</h3>
+                        <ul class="sources-list">
+                            <li><a href="https://www.cnil.fr/en/windows-10-official-closure-formal-notice-procedure-served-microsoft-corporation" class="source-link" target="_blank" rel="noopener">CNIL — "Windows 10: Official Closure of the Formal Notice Procedure Served on Microsoft Corporation"</a></li>
+                            <li><a href="https://www.techradar.com/news/users-warned-of-microsoft-data-harvesting" class="source-link" target="_blank" rel="noopener">TechRadar Pro — "Users warned of Microsoft data harvesting"</a></li>
+                            <li><a href="https://support.microsoft.com/en-us/windows/diagnostics-feedback-and-privacy-in-windows-28808a2b-a31b-dd73-dcd3-4559a5199319" class="source-link" target="_blank" rel="noopener">Microsoft Support — "Diagnostics, feedback, and privacy in Windows"</a></li>
+                            <li><a href="https://www.ninjaone.com/blog/how-to-enable-or-disable-diagnostic-data-viewer-in-windows-10-11/" class="source-link" target="_blank" rel="noopener">NinjaOne — "How to Enable or Disable Diagnostic Data Viewer in Windows 10/11"</a></li>
+                        </ul>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">TL;DR</h3>
+                        <p>Modern operating systems, including Windows, send data about your device and how you use it back to the manufacturer, a practice called telemetry. Windows splits this into a baseline tier that can't be fully turned off on consumer editions and a broader optional tier that's off by default. French and Dutch regulators both raised formal concerns about Windows 10's telemetry practices in 2016 and 2017, leading Microsoft to reduce collection and add more disclosure.</p>
+                        </section>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ── CARD 10 ── -->
+                <article class="method-card" id="card-2">
+                    <button class="card-header-line" type="button" aria-expanded="false">
+                        <h2 class="method-name">Smart Home Devices</h2>
+                        <span class="commonality-pill widespread">Widespread</span>
+                        <span class="card-arrow">▾</span>
+                    </button>
+                    <div class="card-body">
+                        <div class="card-body-inner">
+                        <section class="card-section">
+                            <h3 class="section-label">Description</h3>
+                        <p>Smart TVs, voice assistants, and other internet-connected household devices collect more data than most people realize. One significant example is a technology built into many smart TVs called <em>Automatic Content Recognition</em>, or ACR, which takes digital snapshots or audio fingerprints of whatever is on screen, <strong>sometimes as often as every 15 seconds</strong>, and matches them against a database to identify what's being watched. This works regardless of source, streaming app, cable, or a device plugged in over HDMI. Voice assistants collect data differently: these devices listen continuously for a wake word, and once triggered, record what's said and send the audio to the manufacturer's servers, typically keeping a copy linked to the user's account.</p>
+                        <p>Viewing data collected through ACR is commonly paired with other information, like IP address, location, and demographic details such as age, income, and marital status, then sold to advertisers and data analytics firms; the setting that enables this is often <strong>on by default and buried deep enough in a menu that disabling it can take upward of 20 clicks</strong>. Voice assistants carry a separate risk: false activations happen regularly, and a peer-reviewed study that exposed several smart speaker brands to television dialogue found <strong>misactivations occurring at a rate of nearly once per hour</strong>, meaning private conversations can be recorded and transmitted even when no one meant to activate the device.</p>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">Real-World Example</h3>
+                        <p>In 2017, the FTC and the New Jersey Attorney General reached a $2.2 million settlement with Vizio, one of the world's largest smart TV manufacturers, over allegations that starting in 2014 the company <strong>tracked viewing habits on 11 million televisions on a second-by-second basis</strong> using ACR software, including on older sets where the software was installed remotely after the original sale. According to the complaint, Vizio appended demographic information to viewing profiles, including sex, age, income, marital status, household size, and education level, and sold the combined data to third parties for advertising and analytics. The feature was named <em>"Smart Interactivity"</em> and described to consumers only as something that "enables program offers and suggestions" (FTC, 2017). Vizio was required to delete the data it had collected and obtain opt-in consent going forward; <strong>a separate class-action settlement in 2018 added $17 million</strong>, covering an estimated 16 million Vizio owners.</p>
+                        <p>On the voice assistant side, in 2023 the FTC and Department of Justice charged Amazon with violating the Children's Online Privacy Protection Act, alleging the company had <strong>retained children's Alexa voice recordings and geolocation data for years, including after parents specifically requested deletion</strong>, and used the retained recordings to help train its algorithms; Amazon agreed to pay a <strong>$25 million civil penalty</strong>. In the same complaint, the FTC stated that <strong>roughly 30,000 Amazon employees had access to Alexa voice recordings</strong> between August 2018 and September 2019. A 2019 Bloomberg investigation had separately reported that Amazon employed a global team of contractors and full-time staff to listen to and transcribe Alexa recordings for quality assurance purposes. In one widely reported 2018 incident, an Amazon Echo device in Portland, Oregon, recorded a couple's private conversation and sent the audio to a contact in the husband's phone; Amazon attributed the sequence to a chain of misheard commands.</p>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">Sources</h3>
+                        <ul class="sources-list">
+                            <li><a href="https://www.ftc.gov/news-events/news/press-releases/2017/02/vizio-pay-22-million-ftc-state-new-jersey-settle-charges-it-collected-viewing-histories-11-million" class="source-link" target="_blank" rel="noopener">Federal Trade Commission — "VIZIO to Pay $2.2 Million to FTC, State of New Jersey to Settle Charges It Collected Viewing Histories on 11 Million Smart Televisions without Users' Consent"</a></li>
+                            <li><a href="https://www.classlawgroup.com/gibbs-law-group-announces-17-million-class-action-settlement-in-vizio-consumer-privacy-litigation" class="source-link" target="_blank" rel="noopener">Gibbs Law Group LLP — "Gibbs Law Group Announces $17 Million Class Action Settlement in Vizio Consumer Privacy Litigation"</a></li>
+                            <li><a href="https://www.ftc.gov/news-events/news/press-releases/2023/05/ftc-doj-charge-amazon-violating-childrens-privacy-law-keeping-kids-alexa-voice-recordings-forever" class="source-link" target="_blank" rel="noopener">Federal Trade Commission — "FTC and DOJ Charge Amazon with Violating Children's Privacy Law by Keeping Kids' Alexa Voice Recordings Forever and Undermining Parents' Deletion Requests"</a></li>
+                            <li><a href="https://www.bloomberg.com/news/articles/2019-04-10/is-anyone-listening-to-you-on-alexa-a-global-team-reviews-audio" class="source-link" target="_blank" rel="noopener">Bloomberg — "Amazon Workers Are Listening to What You Tell Alexa"</a></li>
+                            <li>Dubois, D. J., Kolcun, R., Mandalari, A. M., Paracha, M. T., Choffnes, D., &amp; Haddadi, H. — "When Speakers Are All Ears: Characterizing Misactivations of IoT Smart Speakers" (<em>Proceedings on Privacy Enhancing Technologies</em>, 2020(4), 255–276)</li>
+                        </ul>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">TL;DR</h3>
+                        <p>Smart TVs can use built-in technology to track what's shown on screen, sometimes as often as every 15 seconds, and pair that with demographic data to sell to advertisers. Voice assistants add a second layer: they listen for a wake word but can misactivate, at a documented rate of nearly once per hour in one study, recording audio when no one intended to trigger them. Vizio and Amazon have each faced regulatory penalties over this kind of data handling, including a combined $19.2 million from Vizio's FTC and class-action settlements and a $25 million FTC penalty against Amazon.</p>
+                        </section>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ── CARD 11 ── -->
+                <article class="method-card" id="card-3">
+                    <button class="card-header-line" type="button" aria-expanded="false">
+                        <h2 class="method-name">Social Network Mapping</h2>
+                        <span class="commonality-pill near-universal">Near-Universal</span>
+                        <span class="card-arrow">▾</span>
+                    </button>
+                    <div class="card-body">
+                        <div class="card-body-inner">
+                        <section class="card-section">
+                            <h3 class="section-label">Description</h3>
+                        <p>Social media platforms do more than host posts and messages, they map a person's entire web of relationships, building a detailed model of who someone knows, how they interact, and what content flows between them. Platforms sometimes call this a <em>social graph</em>, built from every follow, message, share, and tagged photo. When someone shares a link on a platform, the URL often doesn't leave cleanly: the platform can attach a tracking parameter, a short code added to the end of the link, that lets it follow where that link goes. When a recipient clicks it, the platform can then connect who shared it, that the recipient clicked, and how they interacted with the content afterward, <strong>turning an ordinary act of sharing into a data pipeline between two people</strong>.</p>
+                        <p>This kind of mapping can extend beyond what a person does on the platform themselves. When a user grants an app access to their phone contacts, the platform can collect the names, phone numbers, and email addresses of everyone in that list, including people who have never created an account. That data can be cross-referenced across multiple users' uploads to build an increasingly detailed picture of someone who never agreed to any terms of service, a practice commonly referred to as a <em>shadow profile</em>. Because a non-user has no account to log into, they generally have <strong>no direct way to see what's been collected about them or request its deletion</strong>.</p>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">Real-World Example</h3>
+                        <p>The concept of Facebook shadow profiles drew wide public attention after a 2013 bug in the company's "Download Your Information" tool. Facebook's own account of the incident says that for about a year, the tool could reveal a person's phone number or email address to a friend who hadn't been given that contact information directly, because Facebook had matched it internally through other users' uploaded contact lists; the company said the exposure <strong>affected roughly 6 million users</strong>. During his 2018 congressional testimony, Mark Zuckerberg confirmed that <strong>Facebook collects data on people who are not Facebook users</strong>, telling Representative Ben Ray Luján that the company does this "for security purposes," though he said he was not familiar with the term "shadow profiles" specifically.</p>
+                        <p>A 2022 study by researchers at the University of Zurich, HEC Lausanne, and other institutions estimated that Facebook is able to <strong>track roughly 40% of the browsing time of both users and non-users</strong> through buttons, pixels, and cookies embedded on third-party websites, and that this browsing data can be used to accurately predict personal information like age or gender even for people who have never signed up. Facial recognition has also been tested in court: in Zellmer v. Meta Platforms (2024), a man who had never used Facebook sued after learning the platform generated a <em>face signature</em> from photos his friends had uploaded, in order to check it against the profiles of enrolled users. <strong>The Ninth Circuit ruled that this signature is not persistently stored biometric information under Illinois law</strong> because it is compared and then deleted regardless of whether a match is found, distinguishing it from the templates Facebook keeps for users who have enabled the feature themselves.</p>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">Sources</h3>
+                        <ul class="sources-list">
+                            <li><a href="https://techcrunch.com/2013/06/21/facebook-security-bug-exposed-personal-account-information-emails-and-phone-numbers-six-million-accounts-affected" class="source-link" target="_blank" rel="noopener">TechCrunch — "Facebook Security Bug Exposed Personal Account Information, Emails And Phone Numbers, Six Million Accounts Affected"</a></li>
+                            <li><a href="https://fortune.com/2018/04/11/mark-zuckerberg-facebook-data-testimony" class="source-link" target="_blank" rel="noopener">Fortune (Bloomberg) — "Mark Zuckerberg Says Facebook Collects Internet Data on Non-Users"</a></li>
+                            <li><a href="https://arxiv.org/pdf/2202.04131" class="source-link" target="_blank" rel="noopener">Aguiar, Peukert, Schäfer, &amp; Ullrich — "Facebook Shadow Profiles" (arXiv, 2022)</a></li>
+                            <li><a href="https://www.hunton.com/privacy-and-information-security-law/ninth-circuit-holds-face-signatures-used-for-photo-tag-suggestions-are-not-biometric-information" class="source-link" target="_blank" rel="noopener">Hunton Andrews Kurth — "Ninth Circuit Holds 'Face Signatures' Used for Photo Tag Suggestions Are Not Biometric Information"</a></li>
+                        </ul>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">TL;DR</h3>
+                        <p>Social platforms map who you know and how you interact through follows, messages, shares, and tagged photos, and links you share often carry tracking codes that let the platform follow who clicks them. This mapping can extend to people who've never signed up: a 2013 Facebook bug revealed the company was matching non-users' contact information from other users' uploads, and Zuckerberg later confirmed the company collects data on non-users. A 2022 academic study estimated the same platform can track roughly 40% of browsing time for users and non-users alike through embedded buttons and pixels.</p>
+                        </section>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ── CARD 12 ── -->
+                <article class="method-card" id="card-10">
+                    <button class="card-header-line" type="button" aria-expanded="false">
+                        <h2 class="method-name">Wearable and Health Data Tracking</h2>
+                        <span class="commonality-pill widespread">Widespread</span>
+                        <span class="card-arrow">▾</span>
+                    </button>
+                    <div class="card-body">
+                        <div class="card-body-inner">
+                        <section class="card-section">
+                            <h3 class="section-label">Description</h3>
+                        <p>Fitness trackers and smartwatches have become common accessories for monitoring health and exercise, and in doing so they collect a wide range of biometric data: heart rate, blood oxygen levels, sleep stages, skin temperature, stress indicators, menstrual cycles, step counts, and GPS-tracked exercise routes. Some newer devices also support blood glucose monitoring and electrocardiogram readings. This data doesn't stay on the device. It <strong>syncs to a cloud server and gets linked to a user's account</strong>, where it can be used for advertising, shared with third-party app developers, or passed to research partners.</p>
+                        <p>This data is unusually revealing. Heart rate patterns can indicate underlying medical conditions, sleep data can reflect mental health, GPS routes reveal where a person lives and works, and menstrual cycle tracking can indicate pregnancy. Combined, this paints a more intimate picture of someone's physical and emotional state than almost any other form of data collection, yet it <strong>carries fewer legal protections than an ordinary medical record</strong>. HIPAA, the law governing how hospitals and doctors handle patient records, applies only to healthcare providers and insurers, not to the company that made the device, meaning <strong>consumer biometric data can be used, shared, or sold in ways a doctor's own notes legally cannot</strong>.</p>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">Real-World Example</h3>
+                        <p>In January 2018, Australian security researcher Nathan Ruser was browsing Strava's <em>Global Heatmap</em>, a visualization built from roughly 3 trillion GPS data points shared by the app's users worldwide. In most cities the map lit up brightly with activity, but in conflict zones like Syria and Afghanistan it was mostly dark except for small, bright clusters, <strong>later identified as U.S. and allied military bases</strong>, their perimeters and patrol routes traced out by soldiers' jogging and exercise routes. The U.S. Department of Defense opened a security review, and Strava restricted some of its data visibility settings in response.</p>
+                        <p>The pattern didn't end there. Le Monde's "#StravaLeaks" investigative series documented security personnel for multiple heads of state exposing their movements through public Strava accounts in 2024, then a French nuclear submarine crew revealing patrol schedules from their base in 2025. In March 2026, a French naval officer <strong>exposed the real-time location of the aircraft carrier Charles de Gaulle during an active deployment</strong> by logging a run around its deck; the French military called the post a violation of digital security guidance. Weeks later, an investigation by British newspaper The i Paper found that <strong>more than 500 UK Armed Forces personnel, including 110 individuals at Faslane</strong>, home of Britain's Trident nuclear submarines, had similarly logged public runs inside restricted military sites since the start of the year.</p>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">Sources</h3>
+                        <ul class="sources-list">
+                            <li><a href="https://www.npr.org/sections/thetwo-way/2018/01/29/581597949/pentagon-reviews-gps-data-after-soldiers-strava-tracks-are-seemingly-exposed" class="source-link" target="_blank" rel="noopener">NPR — "Pentagon Reviews GPS Policies After Soldiers' Strava Tracks Are Seemingly Exposed"</a></li>
+                            <li><a href="https://techcrunch.com/2026/03/20/a-french-navy-officer-accidentally-leaked-the-location-of-an-aircraft-carrier-by-logging-his-run-on-strava/" class="source-link" target="_blank" rel="noopener">TechCrunch — "A French Navy officer accidentally leaked the location of an aircraft carrier by logging his run on Strava"</a></li>
+                            <li><a href="https://www.euronews.com/2025/01/15/french-submarine-crew-accidentally-leak-sensitive-information-through-strava-app" class="source-link" target="_blank" rel="noopener">Euronews — "French submarine crew accidentally leak sensitive information through Strava app"</a></li>
+                            <li><a href="https://www.scotsman.com/news/faslane-security-questions-as-personnel-tracked-base-runs-on-strava-6563583" class="source-link" target="_blank" rel="noopener">The Scotsman — "Faslane: Security questions as personnel 'tracked base runs on Strava'"</a></li>
+                        </ul>
+                        </section>
+                        <section class="card-section">
+                            <h3 class="section-label">TL;DR</h3>
+                        <p>Fitness trackers and smartwatches collect biometric data like heart rate, sleep stages, and GPS routes that is deeply personal and not protected by HIPAA the way medical records are. A 2018 Strava heatmap exposed military base locations through soldiers' public jogging routes, and the same pattern recurred from 2024 through 2026 with world leaders' security details, a French submarine base, an aircraft carrier, and hundreds of UK military personnel.</p>
+                        </section>
+                        </div>
+                    </div>
+                </article>
+
+            </div><!-- .cards-container -->
+        </main>
+
+        <!-- ================================================
+             FOOTER
+             ================================================ -->
+        <footer id="footer">
+            <div class="footer-inner">
+                <div class="footer-left">
+                    <div class="footer-text">
+                        <p class="footer-credit">An independent project on data privacy and collection practices.</p>
+                        <p class="footer-statement">No cookies, analytics, or trackers.</p>
+                        <p class="footer-disclaimer">Code MIT licensed. Written content not for reproduction without permission.</p>
+                        <p class="footer-disclaimer">Built by Hasan Butte &nbsp;|&nbsp;
+                            <a href="https://github.com/hasan-butte/URData_" target="_blank" rel="noopener" class="footer-gh-link">View on GitHub</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="footer-divider"></div>
+                <p class="footer-trademark">All information presented is sourced from publicly available reporting, official records, and academic research. Sources are cited within each section.</p>
+            </div>
+        </footer>
+
+        <!-- Fixed scroll-to-top button -->
+        <button id="scroll-top-btn" class="scroll-top-btn" aria-label="Back to top">&#8593;</button>
+
+        <script src="../assets/js/collected-script.js"></script>
+    </body>
+</html>

@@ -985,6 +985,7 @@ a { color: inherit; text-decoration: none; }
     .node-desc     { font-size: 0.75rem; }
     .master-title  { font-size: 1rem; }
     .master-subtitle { font-size: 0.65rem; }
+    .nav-links { display: none; }
 }
 
 @media (max-width: 760px) {
@@ -1002,8 +1003,4 @@ a { color: inherit; text-decoration: none; }
     .node-card { width: 100%; }
     .node-wrap.node-left  .node-card { transform: translateY(20px); }
     .node-wrap.node-right .node-card { transform: translateY(20px); }
-}
-
-@media (max-width: 520px) {
-    .nav-links { display: none; }
 }
