@@ -40,16 +40,6 @@ Where the site draws conclusions, they're built as structural critique: argument
 
 Plain HTML, CSS, and JavaScript. No frameworks, no build step, no external dependencies. Hosted on GitHub Pages.
 
-## Running Locally
-
-There's no build process, so cloning the repo and opening `index.html` directly in a browser works for most pages. For anything that fetches local resources via JavaScript, serve the directory with a static server instead:
-
-```bash
-python3 -m http.server 8000
-```
-
-Then visit `http://localhost:8000`.
-
 ## License
 
 Code in this repository is licensed under MIT (see `LICENSE`). Written content is not covered by that license and may not be reproduced without permission.
