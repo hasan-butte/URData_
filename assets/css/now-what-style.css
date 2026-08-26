@@ -532,16 +532,6 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 760px) {
     #navbar { padding: 0 1.2rem; }
     .nav-links a { font-size: 0.7rem; }
-
-    /* Stack: card on top, SVG below on narrow screens */
-    .shape-container.active {
-        flex-direction: column;
-        gap: 2rem;
-        padding: 0 1.2rem;
-    }
-
-    .shape-svg { order: 2; width: min(300px, 82vw) !important; }
-    .shape-content { order: 1; max-width: 100%; }
 }
 
 @media (max-width: 520px) {

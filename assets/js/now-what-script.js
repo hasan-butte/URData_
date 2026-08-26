@@ -1,8 +1,7 @@
 /* ============================================================
    now-what-script.js
    Handles: nav eye tracking, typing animation, puzzle piece
-   hover/click/shift-out, SVG shape draw-in animation,
-   content population from data array.
+   hover/click selection, content population from data array.
    ============================================================ */
 
 // ── Category data ──────────────────────────────────────────
@@ -16,7 +15,7 @@ const CATEGORIES = [
         subsections: [
             {
                 title: 'Reduce OS Telemetry',
-                desc: '<p>This is tied to your operating system, not your browser or internet connection. On Windows, go to Settings, then Privacy and Security, then Diagnostics and Feedback, and set your diagnostic data level to "Required" (this may slightly vary depending on your system version). Turn off "Tailored experiences" and "Improve inking and typing." On macOS, go to System Settings, then Privacy and Security, then Analytics and Improvements, and disable sharing. If you want full control over your system\'s telemetry, consider switching to a Linux distribution like Linux Mint or Zorin OS, which do not include telemetry by default.</p>',
+                desc: '<p>This is tied to your operating system, not your browser or internet connection. On Windows, go to Settings, then Privacy and Security, then Diagnostics and Feedback, and set your diagnostic data level to "Required" (this may slightly vary depending on your system version). Turn off "Tailored experiences" and "Improve inking and typing." On macOS, go to System Settings, then Privacy and Security, then Analytics and Improvements, and disable sharing. If you want full control over your system\'s telemetry, consider switching to a Linux distribution like Linux Mint or Zorin OS, which do not include telemetry by default. If you\'re comfortable with more advanced settings, a tool like O&amp;O ShutUp10 can disable additional telemetry endpoints beyond what Windows exposes natively. Research each setting before changing it, since some affect other features.</p>',
             },
             {
                 title: 'Encrypt Your Drive',
@@ -72,7 +71,7 @@ const CATEGORIES = [
     },
     {
         id:   2,
-        name: 'Unconventional Devices',
+        name: 'Unconventional Data Sources',
         subsections: [
             {
                 title: 'Disable ACR on Your Smart TV',
@@ -96,7 +95,11 @@ const CATEGORIES = [
             },
             {
                 title: 'Review Wearable and Fitness Tracker Privacy Settings',
-                desc: '<p>Disable public activity sharing on fitness apps. Turn off GPS tracking for workouts where you don\'t need it, such as indoor exercises or gym sessions. Enable privacy zones around your home and workplace so those locations are hidden from your activity maps. Revoke research consent if you previously opted in to having your health data shared with third parties. On Fitbit, review connected apps in your account settings and remove any you no longer use.</p>',
+                desc: '<p>Disable public activity sharing on fitness apps. Turn off GPS tracking for workouts where you don\'t need it, such as indoor exercises or gym sessions. Enable privacy zones around your home and workplace so those locations are hidden from your activity maps. Revoke research consent if you previously opted in to having your health data shared with third parties. On Fitbit, review connected apps in your account settings and remove any you no longer use. On Strava specifically, go to Settings, then Privacy Controls, and set your Profile Page to Followers instead of Everyone. Also think carefully before connecting your tracker to third-party apps, since each connection is a separate entity receiving your health data under its own privacy policy.</p>',
+            },
+            {
+                title: 'Delete Your Genetic Testing Data',
+                desc: '<p>If you have a 23andMe or Ancestry account, you can request deletion of your data and destruction of your saliva sample through account settings. On 23andMe, go to Settings, scroll to the "23andMe Data" section, select View, then scroll further to Delete Data and select Permanently Delete Data; you\'ll get a confirmation email you have to click through to finalize it. Revoking research consent is a separate step, found under Preferences or Research and Product Consents in the same settings area, and it won\'t remove data already shared with research partners before you revoke it. Note that 23andMe is now operated by TTAM Research Institute, a nonprofit that acquired the company out of its 2025 bankruptcy and has committed to honoring the same deletion and opt-out policies. Additionally, talk to a family before testing. A genetic test doesn\'t just expose your own data, it exposes information about relatives who never consented to the test. Have that conversation with family before submitting a sample, since once the data exists in a company\'s database, removing it fully is difficult and sometimes impossible.</p>',
             },
         ],
     },
@@ -110,7 +113,7 @@ const CATEGORIES = [
             },
             {
                 title: 'Submit Data Access Requests',
-                desc: '<p>Most major companies are legally required to show you what data they hold on you if you ask. You can submit requests to Google, Meta, Amazon, data brokers like Acxiom, and even companies you\'ve never directly interacted with. Seeing your own file is often the most effective way to understand the scale of what\'s being collected. Google Takeout, Meta\'s "Download Your Information" tool, and Acxiom\'s consumer portal are starting points.</p>',
+                desc: '<p>Most major companies are legally required to show you what data they hold on you if you ask. You can submit requests to Google, Meta, Amazon, data brokers like Acxiom, and even companies you\'ve never directly interacted with. Seeing your own file is often the most effective way to understand the scale of what\'s being collected. Google Takeout, Meta\'s "Download Your Information" tool, and Acxiom\'s consumer portal are starting points. This applies even if you\'ve never had an account on a platform yourself, since other people\'s contact uploads can put your information into their systems anyway.</p>',
             },
             {
                 title: 'Request Data Deletion and Opt Out of Data Brokers',
@@ -135,6 +138,10 @@ const CATEGORIES = [
             {
                 title: 'Teach Younger People How Surveillance Works',
                 desc: '<p>Many of the most aggressive data collection platforms target younger users who are least equipped to understand the implications. Social media and gaming platforms tend to collect extensive data from minors. If you have younger siblings, children, or students in your life, helping them understand how their data is collected and used is one of the most valuable things you can pass on. Privacy literacy should start before someone creates their first social media account, not after.</p>',
+            },
+            {
+                title: 'Monitor Facial Recognition Databases',
+                desc: '<p>Every photo you post publicly is a potential source for facial recognition databases, so adjust your social media privacy settings so photos aren\'t visible outside your network. Clearview AI offers an opt-out form on its site, and the practical strength of that request depends on where you live: Illinois residents have a legally enforceable opt-out under a 2026 BIPA settlement, and other states with biometric or comprehensive privacy laws (California, Virginia, and others) provide some basis for a request. Outside those states there\'s no legal requirement to honor it, and regulators have separately questioned whether Clearview\'s scraping-based model lets it reliably confirm deletion at all.</p>',
             },
         ],
     },
@@ -174,6 +181,18 @@ const CATEGORIES = [
                 title: 'Use Email Aliases and Disposable Addresses',
                 desc: '<p>Services like SimpleLogin, Firefox Relay, and Proton Mail let you create unique email addresses for each service you sign up for. If one gets compromised or sold to spam lists, you disable that alias without affecting your real address. This also prevents companies from correlating your accounts across different services using a shared email. Using a different alias for each account creates a firewall between your identities across platforms.</p>',
             },
+            {
+                title: 'Adjust Your AI Chatbot\'s Data Settings',
+                desc: '<p>If you use ChatGPT, go to Settings, then Data Controls, and turn off "Improve the model for everyone." This stops future conversations from being used as training data, though clicking thumbs-up or thumbs-down on a response can still flag that exchange for training regardless of the setting. Avoid entering sensitive personal information, proprietary work material, or anything you wouldn\'t want stored on someone else\'s server, since anything typed into a chatbot should be treated as retrievable by the company that operates it. If your workplace uses AI tools, find out whether there\'s a policy on what can and can\'t be submitted to them, and raise the question if none exists.</p>',
+            },
+            {
+                title: 'Reset Your Ad Preference Profile',
+                desc: '<p>Most major platforms let you see and reset the interest categories they\'ve built for you. On Facebook, go to Settings &amp; Privacy, then Settings, then Accounts Center, then Ad Preferences (Meta consolidated this into Accounts Center; the old Settings-then-Ads path no longer exists). On Google, visit myadcenter.google.com to see and adjust ad topics directly, or myaccount.google.com under Data and Privacy for broader activity controls. Clearing these doesn\'t stop future profiling, but it resets what the platform currently assumes about you.</p>',
+            },
+            {
+                title: 'Secure Your Payment and Budgeting Apps',
+                desc: '<p>On Venmo, go to Settings, then Privacy, and switch transactions and your friends list to private. Other payment apps have similar settings buried in their privacy menus. Public transaction feeds let anyone see who you\'re paying, how often, and sometimes why. Also, be careful with budgeting app bank logins. Many budgeting and financial apps ask for your bank login credentials and route them through a third-party service like Plaid, which can retain your full transaction history. Look for apps that offer read-only, permissioned bank connections instead of ones that require your actual login, or use manual entry.</p>',
+            },
         ],
     },
 ];
@@ -197,15 +216,6 @@ const scrollTopBtn   = document.getElementById('scroll-top-btn');
 
 let selectedId   = null;
 let transitioning = false;
-
-// Shift vectors: each piece moves away from puzzle centre when selected
-const SHIFTS = [
-    { x: -26, y:  0  },   // piece 0 — left
-    { x: -18, y:  18 },   // piece 1 — lower-left
-    { x:   0, y:  26 },   // piece 2 — down
-    { x:  18, y:  18 },   // piece 3 — lower-right
-    { x:  26, y:   0 },   // piece 4 — right
-];
 
 // ── Nav eye tracking ───────────────────────────────────────
 
@@ -344,22 +354,6 @@ function populateContent(id, el) {
         header.addEventListener('click', () => {
             header.closest('.collapsible-section').classList.toggle('open');
         });
-    });
-}
-
-// ── SVG shape draw-in animation ────────────────────────────
-
-function animateShape(container) {
-    const paths = container.querySelectorAll('.animate-path');
-    paths.forEach((path, i) => {
-        const len = path.getTotalLength ? path.getTotalLength() : 600;
-        path.style.strokeDasharray  = len;
-        path.style.strokeDashoffset = len;
-        path.style.transition       = 'none';
-        // Force reflow before starting transition
-        path.getBoundingClientRect();
-        path.style.transition = `stroke-dashoffset 0.75s ease ${i * 0.08}s`;
-        path.style.strokeDashoffset = '0';
     });
 }
 

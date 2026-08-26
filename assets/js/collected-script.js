@@ -254,10 +254,15 @@ cards.forEach((card, i) => {
 });
 
 /* ── Collapsible Cards ──────────────────────────────────────── */
+// The whole card is the click target, not just the header line, so the
+// padding around the title is clickable too. Clicks inside the revealed
+// body are ignored so links and text selection there work normally.
 
-document.querySelectorAll('.card-header-line').forEach(header => {
-    header.addEventListener('click', () => {
-        const card   = header.closest('.method-card');
+document.querySelectorAll('.method-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+        if (e.target.closest('.card-body')) return;
+
+        const header = card.querySelector('.card-header-line');
         const isOpen = card.classList.toggle('open');
         header.setAttribute('aria-expanded', String(isOpen));
     });
