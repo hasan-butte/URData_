@@ -38,7 +38,7 @@ Where the site draws conclusions, they're built as structural critique: argument
 
 ## Tech Stack
 
-Plain HTML, CSS, and JavaScript. No frameworks, no build step, no external dependencies. Hosted on GitHub Pages.
+Plain HTML, CSS, and JavaScript. No frameworks, build step, or external dependencies. Hosted on GitHub Pages.
 
 ## License
 
