@@ -24,7 +24,7 @@ Where the site draws conclusions, they're built as structural critique: argument
 
 - Dark, near-black purple background with a violet accent palette, tied to a recurring eye motif: the nav logo, a large glowing eye illustration on the homepage, and a cursor-tracking SVG pupil that appears throughout the site
 - Monospace typography with a typewriter-style typing effect used across headings and intro text
-- Collected Data's background runs an independent canvas-based particle and wire animation
+- Collected Data's background runs an independent canvas-based particle and wire animation, uses collapsible text cards for the 12 methods. 
 - So What? lays its argument out as a chain of connected circular nodes, with gear-ring decorations and the curved paths joining them built dynamically in SVG and recalculated on resize
 - Collapsible sections across the site (Collected Data cards, Now What? accordions) expand via CSS `max-height` transitions
 
