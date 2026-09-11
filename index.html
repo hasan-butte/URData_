@@ -8,6 +8,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="assets/css/nav.css" />
     </head>
     <body>
 
@@ -35,7 +36,12 @@
                     <path class="eye-lid-line"  d="M 5,30 C 27,8  93,8  115,30" />
                 </svg>
             </a>
-            <ul class="nav-links">
+            <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
                 <li data-tooltip="What they know about you might surprise you."><a href="pages/collected.html">Collected Data</a></li>
                 <li data-tooltip="Surveillance doesn't stay digital for long."><a href="pages/so-what.html">So What?</a></li>
                 <li data-tooltip="The gap between knowing and doing something about it."><a href="pages/now-what.html">Now What?</a></li>
@@ -130,6 +136,7 @@
 
         <button id="scroll-top-btn" class="scroll-top-btn" aria-label="Back to top">&#8593;</button>
 
+        <script src="assets/js/nav-toggle.js"></script>
         <script src="assets/js/main.js"></script>
     </body>
 </html>
