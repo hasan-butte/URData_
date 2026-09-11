@@ -19,8 +19,6 @@ const introTitle = document.getElementById('intro-title');
 const canvasWrap = document.getElementById('node-canvas-wrap');
 const svgEl      = document.getElementById('connections-svg');
 
-const scrollTopBtn = document.getElementById('scroll-top-btn');
-
 const NODE_IDS = [
     'node-0', 'node-1', 'node-2', 'node-3', 'node-4',
     'node-5', 'node-6', 'node-7', 'node-8', 'node-9', 'node-10', 'node-11',
@@ -378,12 +376,6 @@ function animLoop() {
 }
 requestAnimationFrame(animLoop);
 
-// ── Scroll: scroll-to-top visibility ───────────────────────
-
-window.addEventListener('scroll', () => {
-    scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
-}, { passive: true });
-
 // ── Resize: rebuild everything ─────────────────────────────
 
 let resizeTimer = null;
@@ -394,11 +386,6 @@ window.addEventListener('resize', () => {
         buildConnections();
     }, 220);
 });
-
-// ── Back-to-top ────────────────────────────────────────────
-
-function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-scrollTopBtn.addEventListener('click', scrollToTop);
 
 // ── Subheader dropdown ─────────────────────────────────────
 

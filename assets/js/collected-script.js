@@ -325,18 +325,3 @@ dropdownMenu.querySelectorAll('a').forEach(link => {
     });
 });
 
-/* ── Back-to-Top Button ──────────────────────────────────────── */
-
-const scrollTopBtn     = document.getElementById('scroll-top-btn');
-const SHOW_AFTER_PX    = 500;
-
-window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY > SHOW_AFTER_PX;
-    scrollTopBtn.classList.toggle('visible', scrolled);
-}, { passive: true });
-
-function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-scrollTopBtn.addEventListener('click', scrollToTop);

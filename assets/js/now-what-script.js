@@ -210,7 +210,6 @@ const puzzleTitle  = document.getElementById('puzzle-title');
 const contentSection = document.getElementById('content-section');
 const placeholder    = document.getElementById('content-placeholder');
 const contentCard    = document.getElementById('content-card');
-const scrollTopBtn   = document.getElementById('scroll-top-btn');
 
 // ── State ──────────────────────────────────────────────────
 
@@ -357,11 +356,3 @@ function populateContent(id, el) {
     });
 }
 
-// ── Scroll: back-to-top ────────────────────────────────────
-
-window.addEventListener('scroll', () => {
-    scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
-}, { passive: true });
-
-function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-scrollTopBtn.addEventListener('click', scrollToTop);

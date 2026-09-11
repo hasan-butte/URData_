@@ -169,14 +169,6 @@ function updateDimming() {
 window.addEventListener('scroll', updateDimming, { passive: true });
 updateDimming(); // run once on load
 
-// ── Scroll-to-top button ───────────────────────────────────
-
-const scrollTopBtn = document.getElementById('scroll-top-btn');
-window.addEventListener('scroll', () => {
-    scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
-}, { passive: true });
-scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
 // ── Intersection Observer: Hero Eye Activation ─────────────
 
 new IntersectionObserver(([entry]) => {

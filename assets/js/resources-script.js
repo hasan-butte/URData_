@@ -75,14 +75,3 @@ cards.forEach((card, i) => {
     cardObserver.observe(card);
 });
 
-/* ── Back-to-Top ── */
-
-const scrollTopBtn = document.getElementById('scroll-top-btn');
-
-window.addEventListener('scroll', () => {
-    scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
-}, { passive: true });
-
-function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-
-scrollTopBtn.addEventListener('click', scrollToTop);
